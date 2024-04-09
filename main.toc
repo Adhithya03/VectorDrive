@@ -1,0 +1,19 @@
+\contentsline {section}{\centering ACKNOWLEDGEMENT}{iii}{section*.1}%
+\contentsline {section}{\centering ABSTRACT}{i}{section*.2}%
+\contentsline {section}{LIST OF FIGURES}{iii}{section*.2}%
+\contentsline {section}{LIST OF TABLES}{iv}{section*.2}%
+\contentsline {section}{\centering LIST OF ABBREVIATIONS}{v}{section*.3}%
+\contentsline {section}{\numberline {1}\centering INTRODUCTION}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}GENERAL}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}LITERATURE SURVEY}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}SUMMARY OF LITERATURE SURVEY}{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}OBJECTIVES}{5}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}ORGANIZATION OF THESIS}{5}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}CHAPTER SUMMARY}{6}{subsection.1.6}%
+\contentsline {section}{\numberline {2}\centering FIELD ORIENTED CONTROL}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}INTRODUCTION}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}BLOCK DIAGRAM OF FIELD ORIENTED CONTROL}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}WORKING OF FOC}{10}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}CHAPTER SUMMARY}{11}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Results}{12}{section.3}%
+\contentsfinish 
