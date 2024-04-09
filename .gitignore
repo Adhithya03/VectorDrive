@@ -1,6 +1,9 @@
-main.aux
-main.fdb_latexmk
-main.log
-main.fls
-main.out
-main.synctex.gz
+*.aux
+*.fdb_latexmk
+*.log
+*.fls
+*.out
+*.synctex.gz
+.vscode/settings.json
+misc/preamble/preamble.aux
+misc/preamble/preamble.fdb_latexmk

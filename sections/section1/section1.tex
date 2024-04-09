@@ -1,2 +1,94 @@
-\section{Introduction}
-This is the introduction of your document.
+\section{\centering INTRODUCTION}
+
+\subsection{GENERAL}
+
+\hspace{0.2in} The induction motor, a critical component in industry, has long been a focus of study and innovation due to its robustness, simplicity, and cost-effectiveness. It is a workhorse in various applications, ranging from small appliances to large industrial machines. However, the quest for achieving precise control over its operation has led to the development of sophisticated control strategies, one of which is Field Oriented Control (FOC). This project paper aims to explore the intricacies of FOC, its advantages over traditional control methods such as scalar control, and the practical implementation of its simulation for real-world applications.
+
+Comparisons will also be done between different methods to estimate the rotor flux angle, which is a key parameter for FOC. Trade-offs will be evaluated between using sensor-less techniques or physical sensors, such as encoders or hall-effect sensors. It’s observed that FOC is more adaptive to the non-linearity and uncertainties of the induction motor, such as parameter variations, and saturation effects.
+
+
+In industrial applications, where efficiency, performance, and precision control are non-negotiable, the traditional scalar control methods often fall short. Scalar control strategies, such as Volt/Hertz control, are simpler and less costly but do not adequately address the dynamic response and torque control requirements of modern applications. They fail to decouple the flux and torque-producing components of the motor currents, leading to sluggish response and compromised performance under varying loads.
+
+In contrast, Field Oriented Control (FOC) provides a solution to these limitations by treating the induction motor akin to a separately excited DC motor, where torque and flux can be controlled independently. This decoupling allows for precise and independent control of speed and torque, akin to DC motors, which is vital in applications demanding high dynamic performance such as electric vehicles, CNC machines, and robotics.
+
+The basic principle of FOC is to transform the three-phase stator currents and voltages into a two-phase coordinate system (d-q) that rotates synchronously with the rotor flux. This transformation simplifies the analysis and control of the induction motor, since the d-axis component of the current is responsible for the flux generation, and the q-axis component is responsible for the torque generation. By controlling these two components separately, the FOC can achieve a fast and accurate response to the speed and torque commands.
+
+Key components and concepts of the FOC methodology include:
+\begin{enumerate}
+	\item  Coordinate Transformation: The transformation of the three-phase stator current variables into a two-coordinate (d-q) system using Clarke and Park transformations. This d-q reference frame rotates synchronously with the rotor flux, simplifying the dynamic model of the induction motor into a form that can be directly controlled.
+
+	\item  Flux Estimation: The accurate estimation or measurement of the rotor flux position, which is central to the performance of FOC. Sensorless methods can use motor voltage and current to estimate the position, while sensor-based methods use encoders or resolvers for direct measurement.
+
+	\item Control Algorithm: A control algorithm that takes the reference speed or torque and calculates the required voltage vectors in the d-q frame, which are then transformed back into three-phase voltages to be applied to the motor.
+
+	\item Inverters and PWM: The use of voltage-source inverters and Pulse Width Modulation (PWM) techniques to generate the required voltages and currents that drive the motor according to the FOC strategy.
+
+	\item At this moment we've performed the simulation for VVVF and FOC, and obtained the dynamic response of their speed and we've also simulated  $180^\circ$ mode inverter whose calculation is provided. Simulation and experimental results of our project, and discuss the challenges and future work will be presented.
+\end{enumerate}
+\subsection{LITERATURE SURVEY}
+
+
+
+\hspace{0.2in}Arun Dominic Dn et.al (2014) - Analysis of field-oriented controlled induction motor drives overview of sensorless scheme This article  explores use of blanking periods and space vector modulation to enhance low-speed drive performance, providing a thorough technique review.[1]
+
+\vspace{10mm} % add another 10 millimeters of space
+
+Chen, Wen Zhuo, et al. (2014) -   Simulation of Permanent Magnet Synchronous Motor Field oriented Vector Control System   The text describes coordinate conversion's role in managing motor currents, especially excitation and torque.  Simulation results validate the vector control method's accuracy, supporting real-world system design.[3]
+
+
+\vspace{10mm} % add 10 millimeters of space
+
+Dianguo Xu  et.al (2018) -  A Review of Sensorless Control Methods for AC Motor Drives  Sensorless control - signal injection methods are simpler and easier to execute than model reference adaptive system and Kalman filter. Requires large amount of data.[5]
+
+
+
+
+\vspace{10mm} % add another 10 millimeters of space
+
+E.S.Tez (1995) A Simple Understanding of Field Orientation For Ac Motor Control The article teaches field-orientation for AC motor control, which aligns the stator and rotor fields for fast torque control. It corrects some wrong ideas about motor models and parameters, and shows a new field-orientation design called INVECTER.[4]
+
+\vspace{10mm} % add another 10 millimeters of space
+
+F. Yusivar, N. Hidayat et al (1980) -  Implementation of Field Oriented Control for Permanent Magnet Synchronous Motor     The article shows how microprocessors can control AC machines better with field orientation, which improves their dynamic performance.It explains the induction motor model and talks about the future possibilities in the field. [2]
+
+
+
+\subsection{SUMMARY OF LITERATURE SURVEY}
+
+
+\hspace{0.2in} Field-oriented control is a technique in AC motor drives that align the stator and rotor magnetic fields for efficient and responsive torque control, introducing advanced control strategies such as INVECTER, which correct misconceptions and improve upon traditional motor models.
+
+
+The application of coordinate transformation, specifically in Permanent Magnet Synchronous Motors (PMSM), is critical for managing motor currents and optimizing control through Proportional-Integral (PI) controllers and Space Vector Pulse Width Modulation (SVPWM), with simulation results confirming the precision and effectiveness of these vector control methods.
+
+
+Sensorless control methodologies for AC motor drives, including signal injection, offer a more straightforward and practical approach compared to complex systems like Model Reference Adaptive Systems (MRAS) and Kalman filters, though they require significant data processing.
+
+
+Integration of microprocessors in the implementation of field-oriented control has significantly enhanced the dynamic performance of AC motors, with Permanent Magnet Synchronous Motors (PMSM) benefiting from improved control theories and practical implementation insights, along with foresight into future advancements in AC motor control.
+
+
+Sophisticated techniques in field-oriented control of induction motors, such as the use of blanking periods and space vector modulation, are instrumental in improving low-speed drive performance, necessitating an in-depth analysis of these sensorless schemes to further refine control strategies.
+
+\subsection{OBJECTIVES}
+\begin{itemize}
+	\item To simulate field oriented control of an induction motor using MATLAB/Simulink and analyze its performance compared to conventional scalar control.
+	\item To implement different control strategies like proportional, PI and PID control for the current control loop and evaluate their impact on the dynamic response of the motor.
+
+	\item To propose techniques to improve the low speed performance and dynamic response of the induction motor drive.
+\end{itemize}
+
+\subsection{ORGANIZATION OF THESIS}
+\hspace{0.2in}This thesis is organized into four chapters, which are described as follows.
+
+\begin{description}
+	\item[] Chapter 1: Deals with the introduction, literature survey, and objectives.
+	\item[] Chapter 2: Explains the functional block diagram and gives an explanation for each block.
+	\item[] Chapter 3: Describes the software and closed-loop operation of the system.
+	\item[] Chapter 4: Presents the conclusion, results, and scope for future work.
+\end{description}
+
+\subsection{CHAPTER SUMMARY}
+\hspace{0.2in} Introduction, literature survey, objectives and organization of thesis are presented in this chapter.
+
+\newpage
