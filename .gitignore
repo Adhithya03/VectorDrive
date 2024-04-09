@@ -5,5 +5,3 @@
 *.out
 *.synctex.gz
 .vscode/settings.json
-misc/preamble/preamble.aux
-misc/preamble/preamble.fdb_latexmk
