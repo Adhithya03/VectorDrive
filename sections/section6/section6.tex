@@ -22,43 +22,59 @@ To generate space vector PWM wave for the switches C2000 series microcontroller 
 
 To generate symmetrical waveform, the ePWM's internal timer is configured in up-down count mode.
 
-\begin{equation}
-    T_{PWM} = (2 \times TBPRD \times T_{TBCLK})
-\end{equation}
+\section*{PWM Frequency Calculation}
 
-\begin{equation}
-    F_{PWM} = {1 \over T_{PWM}}
-\end{equation}
+\subsection*{Variable Definitions}
 
-
-
-$F_{PWM}$ - Frequency of PWM
-
-
-$T_{PWM}$ - Time period of PWM
-
-
-$T_{TBCLK}$ - Time base clock
-
-
-$TBPRD$ - ePWM Time period
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|>{\bfseries}l|l|}
+    \hline
+    Symbol & Description \\ \hline
+    $F_{PWM}$ and $T_{PWM}$ & Frequency of PWM (Hz) and Time period of PWM (seconds) \\ \hline
+    $TBCLK$ & Time base clock (Hz)\\ \hline
+    $T_{TBCLK}$ & Time period of time base clock (in seconds) \\ \hline
+    $TBPRD$ & Timer period (in clock cycles) \\ \hline
+    $EPWMCLK$ & ePWM module clock (in Hz)\\ \hline
+    $HSPCLKDIV$ & High speed clock divider\\ \hline
+    $CLKDIV$ & Clock divider \\ \hline
+\end{tabular}
 
 
-$$TBCLK = {EPWMCLK \over HSPCLKDIV \times CLKDIV}$$
+The period of the PWM signal can be calculated using the formula:
+\[
+T_{\text{PWM}} = 2 \times TBPRD \times T_{\text{TBCLK}}
+\]
+where \( TBPRD \) is the time base period.
 
+\subsection{PWM Frequency (\( F_{\text{PWM}} \))}
+The frequency of the PWM signal is defined as the inverse of the PWM period:
+\[
+F_{\text{PWM}} = \frac{1}{T_{\text{PWM}}}
+\]
 
-$EPWMCLK$ - ePWM clock derived from system clock. System clock is $200 \, Mhz$
+\subsection{Time Base Clock (\( T_{\text{TBCLK}} \))}
+The time base clock is given by:
+\[
+T_{\text{TBCLK}} = \frac{\text{EPWMCLK}}{\text{HSPCLKDIV} \times \text{CLKDIV}}
+\]
+\begin{itemize}
+    \item \( \text{EPWMCLK} \) is the clock frequency dedicated to the PWM module.
+    \item \( \text{HSPCLKDIV} \) and \( \text{CLKDIV} \) are the dividers for the high-speed PWM clock.
+\end{itemize}
 
+According to the FSAM20SH60A datasheet, a 15 kHz carrier wave is recommended for optimal performance. The dividers \( \text{HSPCLKDIV} \) and \( \text{CLKDIV} \) are both set to 1. Given that the EPWMCLK is derived from the system clock (SYSCLK) which operates at 200 MHz, the time base clock can be calculated as follows:
+\[
+T_{\text{TBCLK}} = \frac{200 \times 10^6}{1 \times 1} = 200 \times 10^6 \text{ Hz}
+\]
 
-$HSPCLKDIV$ - High speed clock divider
+\[
+T_{\text{TBCLK}}
 
+\]
 
-$CLKDIV$ - Clock prescaler
+Figure \ref{fig:svpwm_block} below shows the ePWM block in Simulink, which is used to simulate the PWM control scheme.
 
-
-
-% ePWM block in simulink
-\begin{figure}[H]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=1.8in]{sections/section6/images/SVPWM/ePWMBlock.png}
     \caption{ePWM block in Simulink}
