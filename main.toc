@@ -15,11 +15,12 @@
 \contentsline {subsection}{\numberline {2.2}BLOCK DIAGRAM OF FIELD ORIENTED CONTROL}{7}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}WORKING OF FOC}{10}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}CHAPTER SUMMARY}{11}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Results}{12}{section.3}%
-\contentsline {section}{\numberline {4}Hardware Results}{12}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Intelligent Power Module}{12}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}PCB Design}{12}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Current measurement}{12}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Induction Motor Parameter Estimation using No-load and Blocked Rotor Test}{12}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Space Vector Pulse Width Modulation}{12}{subsection.4.5}%
+\contentsline {section}{\numberline {3}Simulation Results}{12}{section.3}%
+\contentsline {section}{\numberline {4}Hardware Results}{13}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Intelligent Power Module}{13}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}PCB Design}{13}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Current measurement}{13}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Induction Motor Parameter Estimation using No-load and Blocked Rotor Test}{14}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Space Vector Pulse Width Modulation}{15}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Conclusion}{16}{section.5}%
 \contentsfinish 
