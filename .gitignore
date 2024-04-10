@@ -5,3 +5,6 @@
 *.out
 *.synctex.gz
 .vscode/settings.json
+*.lof
+*.lot
+*.toc
