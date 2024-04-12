@@ -3,10 +3,10 @@
 \subsection{Block Diagram of the System}
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=6in]{sections/section3/images/simulation/blockDia.png}
-    \caption{Block Diagram of the System}
-    \label{fig:block_diagram}
+	\centering
+	\includegraphics[width=6in]{sections/section3/images/simulation/blockDia.png}
+	\caption{Block Diagram of the System}
+	\label{fig:block_diagram}
 \end{figure}
 
 
@@ -25,7 +25,31 @@ The speed control system shown in Figure \ref{fig:speed_control_system} consists
 
 \subsection{Current Control Subsystem}
 
+\subsubsection{Current measurement}
+\begin{figure}
+	\centering
+	\includegraphics[width=4in]{sections/section3/images/simulation/inputScaling/currentMeasurement.png}
+	\caption{Current Measurement}
+	\label{fig:current_measurement}
+\end{figure}
 
+
+The current measurement part of the Input Scaling block shown in Figure \ref{fig:current_measurement}
+
+converts the $Ia_{ADC}$ and $Ib_{ADC}$ inputs from the ADCs to the appropriate data type (int32) and removes the offsets ($Ia_{offset}$ and $Ib_{offset}$) that were previously calibrated. The signals then go through a series of gain blocks to convert them to per-unit (PU) values. The first gain block converts the ADC voltage to the actual voltage, the second gain block converts the voltage to current using the inverter's current sense voltage per amp, and the third gain block converts the current to PU using the motor's base current.
+
+
+\subsubsection{Position and Speed Estimation}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=4in]{sections/section3/images/simulation/inputScaling/fluxObserver.png}
+	\caption{Position and Speed Estimation}
+	\label{fig:position_speed_estimation}
+\end{figure}
+
+
+The position and speed estimation part of the Input Scaling block shown in  Figure \ref{fig:position_speed_estimation} uses the $VI_{fb}$ signal, which contains the motor's voltage and current in the $\alpha \beta$ reference frame. This signal goes through a high-pass filter to remove low-frequency noise. The filtered signals are then fed into the Flux Observer block, which estimates the stator flux position. The estimated stator flux position is then used in the Speed Estimation block to calculate the motor's speed. The estimated speed is filtered using a low-pass IIR filter to remove high-frequency noise. The final rotor speed is calculated by subtracting the slip speed from the estimated stator flux speed and then dividing by the number of pole pairs to get the mechanical speed.
 
 \subsubsection{Control System}
 
