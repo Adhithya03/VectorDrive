@@ -22,7 +22,7 @@ To generate space vector PWM wave for the switches C2000 series microcontroller 
 
 To generate symmetrical waveform, the ePWM's internal timer is configured in up-down count mode.
 
-\section*{PWM Frequency Calculation}
+\subsubsection{PWM Frequency Calculation}
 
 \subsection*{Variable Definitions}
 
@@ -109,5 +109,45 @@ Figure \ref{fig:ePWMTBPRD} below shows the ePWM module configuration.
 	\caption{ePWM configuration in Simulink}
 	\label{fig:ePWMTBPRD}
 \end{figure}
+
+\subsubsection{Output of SVPWM with low pass filter}
+
+
+The fundamental low frequency wave is buried within the 15 kHz carrier wave. Thus passed through a low pass filter to extract the fundamental frequency and hardware setup is shown in Figure \ref{fig:hardwareSetupLPF}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4.3in]{sections/section6/images/SVPWM/LPFandC2000.jpg}
+	\caption{Hardware setup with RC filter and Launchpad}
+	\label{fig:hardwareSetupLPF}
+\end{figure}
+
+The output of the SVPWM with low pass filter is shown in Figure \ref{fig:OutputLPF}. The output is a SVPWM wave of 2 phases with a frequency 3hz.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4.3in]{sections/section6/images/SVPWM/SVPWM2phases.jpg}
+	\caption{Output of SVPWM with low pass filter}
+	\label{fig:OutputLPF}
+\end{figure}
+
+
+\subsubsection{Dead band}
+
+Dead band is a time delay between the switching of the upper and lower switches in the inverter. This is necessary to prevent short circuiting of the DC bus. The dead band time is set in the ePWM module. The dead band time can be configured in the ePWM module, and it can be specified in terms of the number of clock cycles or in terms of time. The datasheet of FSAM20SH60A smart power module recommends a dead band time of atleast 3us.
+
+
+\vspace{0.2in}
+
+An example of 20us dead band time is shown in Figure \ref{fig:deadBand}. The two waveforms shown are output of ePWM 1A and 1B which will be given to the upper and lower switches of the inverter respectively.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4.3in]{sections/section6/images/SVPWM/DeadBand20Us.jpeg}
+	\caption{Dead band time}
+	\label{fig:deadBand}
+\end{figure}
+
 
 \newpage
