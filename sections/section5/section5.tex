@@ -9,31 +9,31 @@
 % hardware setup for no-load test
 
 \begin{figure}
-    \centering
-    \includegraphics[width=4in]{sections/section5/images/ParamEstim/SetupNoload.jpg}
-    \caption{No-load test setup}
-    \label{fig:no_load_test_setup}
+	\centering
+	\includegraphics[width=4in]{sections/section5/images/ParamEstim/SetupNoload.jpg}
+	\caption{No-load test setup}
+	\label{fig:no_load_test_setup}
 \end{figure}
 
-The no-load setup has 1Hp induction motor connected to variable frequency drive (VFD) to supply no-load losses like friction and windage losses of 0.25Hp motor which is connected to the power analyzer. 
+The no-load setup has 1Hp induction motor connected to variable frequency drive (VFD) to supply no-load losses like friction and windage losses of 0.25Hp motor which is connected to the power analyzer.
 
 
 % Fluke 434 analyzer image voltage amps hertz is shown in the figure
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=4in]{sections/section5/images/ParamEstim/FlukeVoltAmpHertz.png}
-    \caption{Fluke 434 power analyzer}
-    \label{fig:fluke434}
+	\centering
+	\includegraphics[width=4in]{sections/section5/images/ParamEstim/FlukeVoltAmpHertz.png}
+	\caption{Fluke 434 power analyzer}
+	\label{fig:fluke434}
 \end{figure}
 
 % From R Krishnan book circuit equivalent figure
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=4in]{sections/section5/images/ParamEstim/noloadCircuitKrish.png}
-    \caption{No-load test circuit}
-    \label{fig:no_load_test}
+	\centering
+	\includegraphics[width=4in]{sections/section5/images/ParamEstim/noloadCircuitKrish.png}
+	\caption{No-load test circuit}
+	\label{fig:no_load_test}
 \end{figure}
 
 The no-load power factor is given by:
@@ -68,6 +68,17 @@ $$X_\text{eq} = Z_\text{sc} \sin \phi_\text{sc}$$
 
 where the total leakage reactance per phase, $X_\text{eq}$, is the sum of the stator and referred-rotor leakage reactances, given as:
 $$X_\text{eq} = X_\text{ls} + X_\text{lr}$$
+
+
+
+Based on the above test and calculations, the equivalent circuit parameters are computed as follows:
+
+% Alighn left
+
+\begin{flalign*}
+	&L_m = 1.01, R_c = 1555.85                  &\\
+	&R_r = 5.02, X_{ls} = 50.47, X_{lr} = 50.47 &
+\end{flalign*}
 
 
 \newpage
