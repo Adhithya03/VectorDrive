@@ -1,4 +1,4 @@
-\subsection{Space Vector Pulse Width Modulation}
+\subsection{SPACE VECTOR PULSE WIDTH MODULATION}
 
 Space Vector PWM has several advantages over Sine PWM
 
@@ -16,15 +16,15 @@ Space Vector PWM has several advantages over Sine PWM
 	\item Flexibility: SVPWM allows for flexible control of the output voltage magnitude and frequency, as well as the phase relationship between the output voltage and current. This flexibility makes it suitable for a wide range of applications.
 \end{itemize}
 
-\subsubsection{Generation of Space Vector PWM with C2000 microcontroller}
+\subsubsection{GENERATION OF SPACE VECTOR PWM WITH C2000 MICROCONTROLLER}
 
 To generate space vector PWM wave for the switches C2000 series microcontroller offers a hardware level module called ePWM or enhanced PWM module. It enables to generate PWM waves with high flexibility.
 
 To generate symmetrical waveform, the ePWM's internal timer is configured in up-down count mode.
 
-\subsubsection{PWM Frequency Calculation}
+\subsubsection{PWM FREQUENCY CALCULATION}
 
-\subsection*{Variable Definitions}
+\subsection*{VARIABLE DEFINITIONS}
 
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|>{\bfseries}l|l|}
@@ -48,14 +48,14 @@ The period of the PWM signal can be calculated using the formula:
 \]
 where \( TBPRD \) is the time base period.
 
-\subsection{PWM Frequency (\( F_{\text{PWM}} \))}
-The frequency of the PWM signal is defined as the inverse of the PWM period:
+\subsection{PWM FREQUENCY (\( F_{\TEXT{PWM}} \))}
+THE FREQUEncy of the PWM signal is defined as the inverse of the PWM period:
 \[
 	F_{\text{PWM}} = \frac{1}{T_{\text{PWM}}}
 \]
 
-\subsection{Time Base Clock (\( T_{\text{TBCLK}} \))}
-The time base clock is given by:
+\subsection{TIME BASE CLOCK (\( T_{\TEXT{TBCLK}} \))}
+THE TIME Base clock is given by:
 \[
 	T_{\text{TBCLK}} = \frac{\text{EPWMCLK}}{\text{HSPCLKDIV} \times \text{CLKDIV}}
 \]
@@ -64,7 +64,7 @@ The time base clock is given by:
 	\item \( \text{HSPCLKDIV} \) and \( \text{CLKDIV} \) are the dividers for the high-speed PWM clock.
 \end{itemize}
 
-\subsection{Timer Period (\( TBPRD \))}
+\subsection{TIMER PERIOD (\( TBPRD \))}
 
 \[
 	TBPRD = {T_{\text{PWM}} \over 2 \times T_{\text{TBCLK}}}
@@ -110,7 +110,7 @@ Figure \ref{fig:ePWMTBPRD} below shows the ePWM module configuration.
 	\label{fig:ePWMTBPRD}
 \end{figure}
 
-\subsubsection{Output of SVPWM with low pass filter}
+\subsubsection{OUTPUT OF SVPWM WITH LOW PASS FILTER}
 
 
 The fundamental low frequency wave is buried within the 15 kHz carrier wave. Thus passed through a low pass filter to extract the fundamental frequency and hardware setup is shown in Figure \ref{fig:hardwareSetupLPF}.
@@ -133,7 +133,7 @@ The output of the SVPWM with low pass filter is shown in Figure \ref{fig:OutputL
 \end{figure}
 
 
-\subsubsection{Dead band}
+\subsubsection{DEAD BAND}
 
 Dead band is a time delay between the switching of the upper and lower switches in the inverter. This is necessary to prevent short circuiting of the DC bus. The dead band time is set in the ePWM module. The dead band time can be configured in the ePWM module, and it can be specified in terms of the number of clock cycles or in terms of time. The datasheet of FSAM20SH60A smart power module recommends a dead band time of atleast 3us.
 
