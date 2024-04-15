@@ -72,4 +72,64 @@ The control system shown in Figure \ref{fig:current_control_system} implemented 
 The current controllers use Proportional-Integral (PI) controllers to minimize the error between the reference currents ($I_{dq\_ref}$) and the feedback currents ($I_{d\_fb}$ and $I_{q\_fb}$). The output of the PI controllers is then limited, filtered, and adjusted using a feedforward controller and a saturation function to ensure safe and reliable operation of the system. The adjusted d-axis current is then used to generate the reference voltages ($V_{d\_ref}$ and $V_{q\_ref}$) in the DQ frame. These reference voltages are then transformed into the alpha-beta frame using the stator flux position ($\theta$) and fed into the PWM reference generator block, which generates the three-phase voltage references for the inverter. This inner current loop ensures that the actual currents closely follow the desired reference currents, which is crucial for the overall performance and stability of the control system.
 
 
+
+\subsection{SIMULATION RESULTS}
+
+\subsubsection{SPEED RESPONSE}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=6in]{sections/section3/images/simulationResutls/SpeedTrackingNoCursor.png}
+	\caption{Speed Response}
+	\label{fig:speed_response}
+\end{figure}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=6in]{sections/section3/images/simulationResutls/SlipSpeed.png}
+	\caption{Slip Speed}
+	\label{fig:slip_speed}
+\end{figure}
+
+\subsubsection{CURRENT RESPONSE}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=6in]{sections/section3/images/simulationResutls/Ia_Ib_fb.png}
+	\caption{Ia and Ib Feedback/Measured Currents}
+	\label{fig:current_response}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=6in]{sections/section3/images/simulationResutls/Id_ref_Iq_ref.png}
+	\caption{Id and Iq Reference Currents}
+	\label{fig:current_response}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=6in]{sections/section3/images/simulationResutls/Id_fb_Iq_fb.png}
+	\caption{Id and Iq Feedback Currents}
+	\label{fig:current_response}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=6in]{sections/section3/images/simulationResutls/Iq_ref_fb.png}
+	\caption{Iq Reference and Feedback Currents (Torque producing current)}
+	\label{fig:current_response}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=6in]{sections/section3/images/simulationResutls/Id_ref_fb.png}
+	\caption{Id Reference and Feedback Currents (Magnetizing current)}
+	\label{fig:current_response}
+\end{figure}
+
 \newpage
