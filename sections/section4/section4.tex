@@ -1,6 +1,35 @@
 \section{HARDWARE RESULTS}
 
-\subsection{INTELLIGENT POWER MODULE}
+\subsection{Induction Motor}
+
+% \begin{figure}
+% 	\centering
+% 	\includegraphics[width=3in]{sections/section4/images/InductionMotor/inductionMotor.png}
+% 	\caption{Image of Induction Motor}
+% \end{figure}
+
+We are using a revo 3 phase induction motor with the following specifications:
+
+\begin{table}
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Parameter} & \textbf{Value} \\ \hline
+		Power & 0.25 Hp or  \\ \hline
+		Voltage & 415 V (L-L) RMS \\ \hline
+		Current & 6.5 A \\ \hline
+		Frequency & 50 Hz \\ \hline
+		Speed & 1440 rpm \\ \hline
+		Phase & 3 \\ \hline
+	\end{tabular}
+	\caption{Induction Motor Nameplate Details}
+\end{table}
+
+
+
+\subsection{F23879d Launchpad}
+
+\subsection{Intelligent Power Module Fsam20sh60a}
 
 \begin{figure}[H]
 	\centering
@@ -23,7 +52,7 @@ The high-speed HVIC integrated into the FSAM20SH60A requires only a single suppl
 
 
 
-\subsection{PCB DESIGN}
+\subsection{Pcb Design}
 
 \begin{figure}[H]
 	\includegraphics[width=6in]{sections/section4/images/PCBDesign/ApplicationCircuitfromDatasheet.png}
@@ -54,7 +83,7 @@ Software tools from National Instrument's circuit design suite were utilized to 
 \end{figure}
 
 
-\subsection{CURRENT MEASUREMENT}
+\subsection{Current Measurement}
 
 In our project, we implemented a strategy for current measurement using a shunt power resistor of 5 milli-ohms. This resistor was incorporated into two of the phase low pass filters, providing a reliable method for detecting and measuring the current flow.
 
