@@ -1,6 +1,9 @@
 \section{HARDWARE RESULTS}
 
+
 \subsection{Induction Motor}
+
+Induction motors, also known as asynchronous motors, are widely used in various industrial applications due to their simplicity, durability, and cost-effectiveness. They operate on the principle of electromagnetic induction, wherein a rotating magnetic field in the stator induces a current in the rotor, thus creating torque.
 
 \begin{figure}[H]
 	\centering
@@ -8,14 +11,14 @@
 	\caption{Image of Induction Motor}
 \end{figure}
 
-We are using a revo 3 phase induction motor with the following specifications:
+We are utilizing a Revo 3-phase induction motor with the following specifications:
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|c|}
 		\hline
 		\textbf{Parameter} & \textbf{Value} \\ \hline
-		Power & 0.25 Hp or  \\ \hline
+		Power & 0.25 Hp \\ \hline
 		Voltage & 415 V (L-L) RMS \\ \hline
 		Current & 6.5 A \\ \hline
 		Frequency & 50 Hz \\ \hline
@@ -25,15 +28,44 @@ We are using a revo 3 phase induction motor with the following specifications:
 	\caption{Induction Motor Nameplate Details}
 \end{table}
 
+\textbf{Field-Oriented Control (FOC) of Induction Motors:}
+
+Field-Oriented Control, also known as vector control, is a sophisticated control technique used in electrical drive systems to control the torque and speed of three-phase AC electric motors by controlling the current vectors. FOC is essential for applications requiring precise and dynamic control of motor speed and torque.
+
+\textbf{Significance in Induction Motors:}
+\begin{itemize}
+    \item \textbf{Decoupling of Torque and Flux:} FOC allows independent control of the magnetic flux and torque components, similar to how DC motors are controlled. This decoupling enhances the dynamic response of the motor and allows for precise speed and position control, which is crucial in applications like robotics and electric vehicles.
+    \item \textbf{Improved Efficiency:} By optimizing the control of current flow within the motor, FOC improves the efficiency of the motor. This is particularly beneficial in reducing energy consumption in high-performance applications.
+    \item \textbf{Reduced Motor Stress:} Smooth control over torque also means less mechanical stress on the motor components, leading to improved reliability and longer motor life.
+    \item \textbf{Dynamic Performance:} The ability to dynamically adjust the motor's performance parameters allows for better adaptation to varying load requirements, which is essential in many industrial applications.
+\end{itemize}
+
+Implementing FOC in our project not only enhances the performance of the induction motor but also aligns with modern trends in motor control technology, pushing the boundaries of what can be achieved with traditional induction motors.
 
 
-\subsection{F23879d Launchpad}
+\subsection{F28379D Launchpad}
+
+The F28379D Launchpad, officially known as the LAUNCHXL-F28379D, is a powerful development board from Texas Instruments, designed around the TMS320F28379D microcontroller. This microcontroller is part of the C2000™ Piccolo™ family, renowned for its high-performance processing capabilities, which are particularly suited for engineering applications requiring real-time processing and control.
+
+\textbf{Core Features:}
+\begin{itemize}
+    \item \textbf{Processor:} The TMS320F28379D microcontroller features a dual-core configuration with a C28x CPU and a secondary CLA (Control Law Accelerator) CPU, enhancing its ability to handle complex control algorithms.
+    \item \textbf{Memory:} It includes onboard flash memory and RAM, facilitating robust applications and advanced computation.
+    \item \textbf{Connectivity:} Provides extensive connectivity options including CAN, USB, and Ethernet, supporting a wide range of communication protocols.
+    \item \textbf{Analog and Digital I/O:} Equipped with multiple ADC (Analog-to-Digital Converter) channels, DAC (Digital-to-Analog Converter) outputs, and PWM (Pulse Width Modulation) outputs for comprehensive sensor integration and actuator control.
+\end{itemize}
+
+\textbf{Applications:}
+The F28379D Launchpad is particularly adept at handling applications that require real-time processing capabilities such as motor control, renewable energy systems, power supplies, and advanced sensing systems. Its high-speed processing and diverse I/O options make it ideal for both academic research and industrial applications.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=4in]{sections/section4/images/f23879d/launchxl-f28379d-angled.png}
-	\caption{Image of F28379D Launchpad}
+    \centering
+    \includegraphics[width=4in]{sections/section4/images/f23879d/launchxl-f28379d-angled.png}
+    \caption{Image of F28379D Launchpad}
 \end{figure}
+
+The integration of the F28379D Launchpad in projects offers a robust platform for developing sophisticated control systems and algorithms, facilitating innovation and efficiency in system design and implementation.
+
 
 
 \subsection{Intelligent Power Module Fsam20sh60a}
