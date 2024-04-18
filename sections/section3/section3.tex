@@ -20,7 +20,7 @@
 \end{figure}
 
 
-The speed control system shown in Figure \ref{fig:speed_control_system} consists of a DataStoreRead block that holds the speed reference value received from the host computer, a Discrete IIR lowpass filter block to cancel the zeros in the system, and a Discrete PID Controller with anti-windup block that takes the speed reference and feedback values as inputs and generates the torque reference as output. The ACIM Control reference block then takes the torque reference and speed reference as inputs and generates the $Isd_ref$ and $Isq_ref$ values, which are the reference values for the current control loop. The DQ limiter block is used to limit the magnitude of the vector represented in the d-q reference frame, with the option to prioritize either the d-axis or q-axis component.
+The speed control system shown in Figure \ref{fig:speed_control_system} consists of a DataStoreRead block that holds the speed reference value received from the host computer, a Discrete IIR lowpass filter block to cancel the zeros in the system, and a Discrete PID Controller with anti-windup block that takes the speed reference and feedback values as inputs and generates the torque reference as output. The ACIM Control reference block then takes the torque reference and speed reference as inputs and generates the $Isd_{ref}$ and $Isq_{ref}$ values, which are the reference values for the current control loop. The DQ limiter block is used to limit the magnitude of the vector represented in the d-q reference frame, with the option to prioritize either the d-axis or q-axis component.
 
 
 \subsection{CURRENT CONTROL SUBSYSTEM}
@@ -69,7 +69,7 @@ The position and speed estimation part of the Input Scaling block shown in  Figu
 
 The control system shown in Figure \ref{fig:current_control_system} implemented in the inner current loop consists of two main components: the current controllers and the DQO transformation.
 
-The current controllers use Proportional-Integral (PI) controllers to minimize the error between the reference currents ($I_{dq\_ref}$) and the feedback currents ($I_{d\_fb}$ and $I_{q\_fb}$). The output of the PI controllers is then limited, filtered, and adjusted using a feedforward controller and a saturation function to ensure safe and reliable operation of the system. The adjusted d-axis current is then used to generate the reference voltages ($V_{d\_ref}$ and $V_{q\_ref}$) in the DQ frame. These reference voltages are then transformed into the alpha-beta frame using the stator flux position ($\theta$) and fed into the PWM reference generator block, which generates the three-phase voltage references for the inverter. This inner current loop ensures that the actual currents closely follow the desired reference currents, which is crucial for the overall performance and stability of the control system.
+The current controllers use Proportional-Integral (PI) controllers to minimize the error between the reference currents ($I_{dq\_{ref}}$) and the feedback currents ($I_{d\_fb}$ and $I_{q\_fb}$). The output of the PI controllers is then limited, filtered, and adjusted using a feedforward controller and a saturation function to ensure safe and reliable operation of the system. The adjusted d-axis current is then used to generate the reference voltages ($V_{d\_{ref}}$ and $V_{q\_{ref}}$) in the DQ frame. These reference voltages are then transformed into the alpha-beta frame using the stator flux position ($\theta$) and fed into the PWM reference generator block, which generates the three-phase voltage references for the inverter. This inner current loop ensures that the actual currents closely follow the desired reference currents, which is crucial for the overall performance and stability of the control system.
 
 
 
@@ -131,5 +131,21 @@ The current controllers use Proportional-Integral (PI) controllers to minimize t
 	\caption{Id Reference and Feedback Currents (Magnetizing current)}
 	% \label{fig:current_response }
 \end{figure}
+
+\subsection{Chapter summary}
+
+This chapter presented the simulation results FOC control system for an AC induction motor. The simulation was structured to validate various subsystems including speed control, current measurement, position and speed estimation, and the overall control system. Each section provided detailed insights through block diagrams and response graphs to illustrate the system's performance under simulated conditions.
+
+\subsection{Key Findings}
+
+\begin{itemize}
+    \item The \textbf{Speed Control Subsystem} effectively managed the motor's speed by adjusting the torque reference values, ensuring that the motor speed follows the set reference closely.
+    \item The \textbf{Current Control Subsystem} demonstrated robust performance in tracking the reference currents accurately, which is crucial for the stability and efficiency of the motor operation.
+    \item \textbf{Position and Speed Estimation} techniques were validated to show precise estimation of the motor's speed and position, which are critical for the effective vector control of the AC induction motor.
+    \item The overall system showed a \textbf{high degree of accuracy and responsiveness} in the speed and current responses, validating the effectiveness of the designed control strategies in managing the dynamics of the AC induction motor.
+\end{itemize}
+
+In conclusion, this chapter has laid a solid foundation for the practical implementation of the control system, with simulation results strongly supporting the theoretical designs.
+
 
 \newpage

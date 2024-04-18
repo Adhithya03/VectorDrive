@@ -28,19 +28,6 @@ We are utilizing a Revo 3-phase induction motor with the following specification
 	\caption{Induction Motor Nameplate Details}
 \end{table}
 
-\textbf{Field-Oriented Control (FOC) of Induction Motors:}
-
-Field-Oriented Control, also known as vector control, is a sophisticated control technique used in electrical drive systems to control the torque and speed of three-phase AC electric motors by controlling the current vectors. FOC is essential for applications requiring precise and dynamic control of motor speed and torque.
-
-\textbf{Significance in Induction Motors:}
-\begin{itemize}
-    \item \textbf{Decoupling of Torque and Flux:} FOC allows independent control of the magnetic flux and torque components, similar to how DC motors are controlled. This decoupling enhances the dynamic response of the motor and allows for precise speed and position control, which is crucial in applications like robotics and electric vehicles.
-    \item \textbf{Improved Efficiency:} By optimizing the control of current flow within the motor, FOC improves the efficiency of the motor. This is particularly beneficial in reducing energy consumption in high-performance applications.
-    \item \textbf{Reduced Motor Stress:} Smooth control over torque also means less mechanical stress on the motor components, leading to improved reliability and longer motor life.
-    \item \textbf{Dynamic Performance:} The ability to dynamically adjust the motor's performance parameters allows for better adaptation to varying load requirements, which is essential in many industrial applications.
-\end{itemize}
-
-Implementing FOC in our project not only enhances the performance of the induction motor but also aligns with modern trends in motor control technology, pushing the boundaries of what can be achieved with traditional induction motors.
 
 
 \subsection{F28379D Launchpad}
@@ -68,45 +55,49 @@ The integration of the F28379D Launchpad in projects offers a robust platform fo
 
 
 
-\subsection{Intelligent Power Module Fsam20sh60a}
+\subsection{Intelligent Power Module FSAM20SH60A}
+
+
+We integrated the FSAM20SH60A, a Motion SPM\textsuperscript{\textregistered} 2 module, as a fundamental component. This device is UL Certified (No. E209204 UL1557) and serves as a high-performance 3-phase IGBT inverter with integrated gate drivers and protection, making it an ideal solution for AC Induction, BLDC, and PMSM motors.
+
+\textbf{Key Features:}
+\begin{itemize}
+    \item \textbf{Efficiency and Safety:} Designed with low-loss, short-circuit rated IGBTs and an optimized gate drive to minimize electromagnetic interference (EMI) and losses. It incorporates multiple on-module protection features such as under-voltage lockouts, over-current shutdown, thermal monitoring, and fault reporting, ensuring robust and reliable operation.
+    \item \textbf{Thermal Management:} Features low thermal resistance through the use of a ceramic substrate. It also includes separate open-emitter pins from low-side IGBTs for three-phase current sensing, supporting a wide variety of control algorithms.
+    \item \textbf{Performance Specifications:} Tailored for a 15 kHz switching frequency with a built-in NTC thermistor for accurate temperature monitoring. It operates on a single-grounded power supply and offers an inverter power rating of 1.5 kW at an input voltage range of 100~253 VAC.
+    \item \textbf{Customization and Isolation:} Provides an adjustable current protection level, allowing for customization via the selection of Sense-IGBT Emitter's external Rs. Boasts an impressive isolation rating of 2500 Vrms per minute.
+    \item \textbf{High-Voltage Integrated Circuit:} The high-speed HVIC integrated into the FSAM20SH60A requires only a single supply voltage and effectively translates the incoming logic-level gate inputs to the high-voltage, high-current drive signals required to properly drive the module's internal IGBTs.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=3in]{sections/section4/images/IPM/ipm.png}
+    \caption{Image of FSAM20SH60A module}
+\end{figure}
+
+This integration of the FSAM20SH60A enhances our project by providing a compact, efficient, and reliable solution for motor control applications, supporting our objectives of achieving high performance and durability in our designs.
+
+
+\subsection{PCB Design for FSAM20SH60A}
+
+In the PCB design section of our project, we developed a printed circuit board for the FSAM20SH60A, an intelligent power module. Our design approach was heavily influenced by the application circuit provided in the module's datasheet.
+
+\textbf{Design Considerations:}
+\begin{itemize}
+    \item \textbf{Reference Design:} The application circuit from the datasheet served as a crucial reference, ensuring adherence to the technical specifications and requirements of the FSAM20SH60A.
+    \item \textbf{Component Placement and Trace Routing:} Special attention was given to the layout and routing of circuit traces and the strategic placement of components, focusing particularly on effective thermal management.
+    \item \textbf{Functional Integration:} The design accommodates features such as three-phase current sensing and a single-grounded power supply setup. It also supports the functionality of the built-in NTC thermistor for temperature monitoring and the high-speed HVIC.
+    \item \textbf{Customization Features:} Provisions were made for adjusting the current protection level through the selection of Sense-IGBT Emitter's external Rs.
+\end{itemize}
+
+\textbf{Tools Used:}
+Software tools from National Instrument's circuit design suite were utilized. Multisim 14.3 aided in schematic capture, while Ultiboard 14.3 facilitated the PCB layout design.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=3in]{sections/section4/images/IPM/ipm.png}
-	\caption{Image of FSAM20SH60A module}
-\end{figure}
-
-
-We integrated the FSAM20SH60A, a Motion SPM® 2 module, as a fundamental component. This UL Certified (No. E209204 UL1557) device is a high-performance 3-phase IGBT inverter with integrated gate drivers and protection, proving to be an ideal solution for AC Induction, BLDC, and PMSM motors.
-
-The FSAM20SH60A is designed with low-loss, short-circuit rated IGBTs, and an optimized gate drive to minimize EMI and losses. It also incorporates multiple on-module protection features such as under-voltage lockouts, over-current shutdown, thermal monitoring, and fault reporting, thus ensuring robust and reliable operation. 
-
-One of the unique features of this module is its low thermal resistance achieved through the use of a ceramic substrate. It also includes separate open-emitter pins from low-side IGBTs for three-phase current sensing, supporting a wide variety of control algorithms. 
-
-The FSAM20SH60A is tailored for a 15 kHz switching frequency and features a built-in NTC thermistor for accurate temperature monitoring. It operates on a single-grounded power supply and offers an inverter power rating of 1.5 kW at an input voltage range of 100~253 VAC. 
-
-Moreover, the module provides an adjustable current protection level, allowing for customization via the selection of Sense-IGBT Emitter's external Rs. It also boasts an impressive isolation rating of 2500 Vrms per minute. 
-
-The high-speed HVIC integrated into the FSAM20SH60A requires only a single supply voltage and effectively translates the incoming logic-level gate inputs to the high-voltage, high-current drive signals required to properly drive the module's internal IGBTs. 
-
-
-
-\subsection{Pcb Design}
-
-\begin{figure}[H]
 	\includegraphics[width=6in]{sections/section4/images/PCBDesign/ApplicationCircuitfromDatasheet.png}
 	\caption{Application Circuit from FSAM20SH60A Datasheet}
 \end{figure}
-
-In the PCB design section of our project, we developed a printed circuit board for the FSAM20SH60A, an intelligent power module. Our design strategy was primarily guided by the application circuit provided in the datasheet of the module. 
-
-The application circuit served as a reference point for designing the PCB, ensuring that we adhered to the technical specifications and requirements of the module. In particular, we paid careful attention to the layout and routing of the circuit traces, the placement of components, and the thermal management considerations. 
-
-The PCB design was optimized to facilitate the features and functions of the FSAM20SH60A. This included provisions for three-phase current sensing through separate open-emitter pins from low-side IGBTs, as well as accommodating the single-grounded power supply. 
-
-Moreover, the design ensured the proper functioning of the built-in NTC thermistor for temperature monitoring, and the high-speed HVIC that requires only a single supply voltage. The layout also considered the adjustable current protection level, which can be customized via the selection of Sense-IGBT Emitter's external Rs. 
-
-Software tools from National Instrument's circuit design suite were utilized to create the PCB layout. Multisim 14.3 was used for the schematic capture, while Ultiboard 14.3 was employed for the PCB layout design.
 
 \begin{figure}[H]
 	\centering
@@ -114,13 +105,13 @@ Software tools from National Instrument's circuit design suite were utilized to 
 	\caption{PCB Layout Design in Ultiboard}
 \end{figure}
 
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=3.5in]{sections/section4/images/PCBDesign/Ultiboard/3DTopView.png}
 	\caption{3D View of PCB Layout Design in Ultiboard}
 \end{figure}
 
+This structured approach in the PCB design ensures that the board not only meets the functional requirements of the FSAM20SH60A module but also enhances reliability and performance in practical applications.
 
 \subsection{Current Measurement}
 
