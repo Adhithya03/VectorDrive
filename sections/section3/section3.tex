@@ -2,6 +2,13 @@
 
 \subsection{BLOCK DIAGRAM OF THE SYSTEM}
 
+
+
+The block diagram of the Field-Oriented Control (FOC) system for an AC induction motor is shown in Figure \ref{fig:block_diagram}. The system consists of two main subsystems: the Speed Control Subsystem and the Current Control Subsystem. The Speed Control Subsystem is responsible for generating the torque reference values based on the speed reference and feedback values. The Current Control Subsystem is responsible for tracking the reference currents and generating the appropriate voltage references for the inverter to control the motor's currents. The system also includes a Current Measurement block, a Flux Observer block, and a Speed Estimation block to provide the necessary feedback signals for the control system.
+
+
+The current control system is a run on ADC end of converion interrupt. The system runs at PWM frequency of 15 kHz.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=6in]{sections/section3/images/simulation/blockDia.png}
