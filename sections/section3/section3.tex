@@ -91,6 +91,9 @@ The current controllers use Proportional-Integral (PI) controllers to minimize t
 	\label{fig:speed_response}
 \end{figure}
 
+Figure \ref{fig:speed_response} shows the speed response of the induction machine under vector control. The x-axis represents time (in seconds), and the y-axis represents speed (in RPM). The waveform demonstrates the machine's speed over time. The speed reference is set to 0.5 pu. The speed response shows that the machine's speed closely follows the reference, indicating the effectiveness of the speed control subsystem in managing the motor's speed.
+
+
 
 \begin{figure}[H]
 	\centering
@@ -99,6 +102,9 @@ The current controllers use Proportional-Integral (PI) controllers to minimize t
 	\label{fig:slip_speed}
 \end{figure}
 
+Figure \ref{fig:slip_speed} represents the slip speed of the induction machine. The x-axis indicates time (in seconds), and the y-axis denotes the slip speed. The waveform illustrates how the slip speed changes over time. 
+
+
 \subsubsection{CURRENT RESPONSE}
 
 
@@ -106,38 +112,53 @@ The current controllers use Proportional-Integral (PI) controllers to minimize t
 	\centering
 	\includegraphics[width=6in]{sections/section3/images/simulationResutls/Ia_Ib_fb.png}
 	\caption{Ia and Ib Feedback/Measured Currents}
-	% \label{fig:current_response }
+	\label{fig:current_response_IA_IB}
 \end{figure}
+
+Figure \ref{fig:current_response_IA_IB} displays the feedback or measured currents for Ia and Ib. The x-axis signifies time (in seconds), and the y-axis represents current (in per unit).
 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=6in]{sections/section3/images/simulationResutls/Id_ref_Iq_ref.png}
 	\caption{Id and Iq Reference Currents}
-	% \label{fig:current_response }
+	\label{fig:current_response_Id_ref_Iq_ref}
 \end{figure}
+
+The figure \ref{fig:current_response_Id_ref_Iq_ref} shows the reference currents for Id and Iq. The x-axis indicates time (in seconds), and the y-axis represents current (in per unit). The waveform illustrates how the reference currents change over time.
 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=6in]{sections/section3/images/simulationResutls/Id_fb_Iq_fb.png}
 	\caption{Id and Iq Feedback Currents}
-	% \label{fig:current_response }
+	\label{fig:current_response_Id_fb_Iq_fb}
 \end{figure}
+
+
+The figure \ref{fig:current_response_Id_fb_Iq_fb} displays feedback currents for Id and Iq. The x-axis represents time (in seconds), and the y-axis denotes current (in per unit). The waveform demonstrates the changes in the feedback currents over time. The observed trends can be attributed to load variations and control system responses.
+
+
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=6in]{sections/section3/images/simulationResutls/Iq_ref_fb.png}
 	\caption{Iq Reference and Feedback Currents (Torque producing current)}
-	% \label{fig:current_response }
+	\label{fig:current_response_Iq_ref_fb}
 \end{figure}
+
+The figure \ref{fig:current_response_Iq_ref_fb} shows the reference and feedback currents for Iq, which is responsible for producing torque. The x-axis signifies time (in seconds), and the y-axis represents current (in per unit). The waveform illustrates how these currents change over time. 
+
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=6in]{sections/section3/images/simulationResutls/Id_ref_fb.png}
 	\caption{Id Reference and Feedback Currents (Magnetizing current)}
-	% \label{fig:current_response }
+	\label{fig:current_response_Id_ref_fb}
 \end{figure}
+
+The figure \ref{fig:current_response_Id_ref_fb}  displays the reference and feedback currents for Id, which is responsible for magnetizing the motor. The x-axis indicates time (in seconds), and the y-axis represents current (in per unit). The waveform illustrates how these currents change over time. The oscillations at the beginning of the simulation are due to the initial transient response of the control system as it tries to stabilize the motor currents.
+
 
 \subsection{Chapter summary}
 
