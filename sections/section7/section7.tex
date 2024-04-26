@@ -1,14 +1,24 @@
 \section{CONCLUSION}
 
+\subsection{GENERAL}
+
+In conclusion, this thesis successfully demonstrates the design and implementation of an DSP based Sensorless Field Oriented Control of Induction Motor and proves that the smooth and precise control of speed and torque of vector control is unmatched by any other control strategies. The only input to the controller from the user for a given motor is the set speed and load applied to the shaft, while the control takes care of the rest and achieves the set speed in a quick and smooth manner driving the rated load even at low speeds.
+
+The system effectively regulates key motor variables, achieving desired performance levels. Both the magnetizing current (Id) and motor speed accurately track their respective reference values, demonstrating precise control. The Id reference and feedback values converge to 0.2 pu, ensuring proper motor magnetization. Similarly, the motor speed closely follows its reference value of 0.5 pu. Furthermore, the load angle, a critical parameter for torque generation, stabilizes around 85-90 degrees. This indicates operation near the maximum torque per ampere condition, maximizing the motor's efficiency. The control system utilizes a carrier frequency of 15 kHz for pulse width modulation.  It's important to note that the rated frequency for achieving the rated speed of the motor is 50 Hz. The control system dynamically adjusts the output frequency based on the desired speed reference, ensuring optimal performance across the operating range. 
+
+These results validate the FOC system's ability to achieve stable, controlled, and efficient operation of the AC induction motor under the simulated conditions. 
+
+\subsection{SCOPE FOR FUTURE WORK}
+
+Future work fo this thesis can focus on integrating position sensors and exploring advanced control techniques for further optimization. Though going sensorless reduces the hardware complexity and overall cost, it proportionally increases the software design complexity and possible reduction in position estimation accuracy due to errors in measurement of motor parameters. Using a rotary encoder with enough resolution will remove the possibility of inaccurate position estimations. Other control strategies include Direct Torque Control, Model Predictive Control and Indirect Field Oriented Control. Though Direct FOC is the overall best vector control algorithm, other mentioned control strategies have their own application specific advantages that can be further analysed and proper comparsion between all control strategies can be recorded.
+
+
 \newpage
 
 
 \begin{center}
-
     {\textbf{REFERENCES}}
 \end{center}
-
-% \prelimsection{\centering REFERENCES}
 
 \begin{enumerate}
     \item Chen, Wen Zhuo, et al. “Simulation of Permanent Magnet Synchronous Motor Field Oriented Vector Control System.” Applied Mechanics and Materials, vol. 672–674, Trans Tech Publications, Ltd., Oct. 2014, pp. 1234–1237.
