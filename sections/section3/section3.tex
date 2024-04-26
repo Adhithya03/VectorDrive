@@ -35,39 +35,6 @@ The ACIM Control reference block then takes the torque reference and speed refer
 \subsection{CURRENT CONTROL SUBSYSTEM}
 
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=6in]{sections/section3/images/simulationResutls/LoadAngle.png}
-	\caption{Load Angle between Rotor Flux and Stator Flux}
-	\label{fig:load_angle_1}
-\end{figure}
-
-Figure \ref{fig:load_angle_1} shows the load angle between the rotor flux and the stator flux. The x-axis indicates time (in seconds), and the y-axis denotes the load angle (in degrees). The waveform illustrates how the load angle changes over time, eventually settling around 90 degrees.
-
-The load angle, also known as the torque angle, is a critical parameter in the vector control of induction machines. It is the angle between the rotor flux vector and the stator current vector in the rotor-flux-oriented reference frame. The load angle is directly related to the electromagnetic torque produced by the motor. 
-
-In the ideal case of maximum torque per ampere control strategy, the load angle should be maintained at 90 degrees. This is because the torque produced by the induction machine is directly proportional to the sine of the load angle. Therefore, to maximize the torque output for a given current, the load angle should be maintained at 90 degrees, where the sine function reaches its maximum value.
-
-The settling of the load angle around 90 degrees in the simulation results indicates that the vector control system is effectively controlling the motor to operate at the point of maximum efficiency. This validates the performance of the control system in managing the machine's dynamics and achieving efficient operation.
-
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=6in]{sections/section3/images/simulationResutls/howTogetloadAngle.png}
-	\caption{Simulink Model for Load Angle Calculation}
-	\label{fig:simulink_model}
-\end{figure}
-
-
-Figure \ref{fig:simulink_model} shows the Simulink model and exact blocks used for getting the load angle. The model includes Park transform blocks, which are used to transform the three-phase stator currents into the rotor-flux-oriented reference frame. The transformed $D$ and $Q$ currents are then input to the `\texttt{Atan2}' block labeled 1 in the figure.
-
-The `\texttt{Atan2}' block, also known as the four-quadrant inverse tangent function, calculates the angle from the $D$ and $Q$ currents. Unlike the standard inverse tangent function, the `\texttt{Atan2}' function takes two arguments and can return values in all four quadrants, which is necessary for accurately representing the load angle.
-
-The output of the `\texttt{Atan2}' block, which is the load angle in radians, is then converted to degrees using the `\texttt{Radian to Degree}' block labeled 2 in the figure. The final output is displayed on a scope, which shows the load angle over time.
-\end{figure}
-
-I replaced the double quotes with `\texttt{}` to format the block names as code, and used `$` to format the variables `$D$` and `$Q$` as math variables. Let me know if you need further corrections!
-
 \subsubsection{CURRENT MEASUREMENT}
 
 
@@ -119,6 +86,41 @@ The current controllers use Proportional-Integral (PI) controllers to minimize t
 \subsection{SIMULATION RESULTS}
 
 
+\subsubsection{Load Angle}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=6in]{sections/section3/images/simulationResutls/LoadAngle.png}
+	\caption{Load Angle between Rotor Flux and Stator Flux}
+	\label{fig:load_angle_1}
+\end{figure}
+
+Figure \ref{fig:load_angle_1} shows the load angle between the rotor flux and the stator flux. The x-axis indicates time (in seconds), and the y-axis denotes the load angle (in degrees). The waveform illustrates how the load angle changes over time, eventually settling around 90 degrees.
+
+The load angle, also known as the torque angle, is a critical parameter in the vector control of induction machines. It is the angle between the rotor flux vector and the stator current vector in the rotor-flux-oriented reference frame. The load angle is directly related to the electromagnetic torque produced by the motor. 
+
+In the ideal case of maximum torque per ampere control strategy, the load angle should be maintained at 90 degrees. This is because the torque produced by the induction machine is directly proportional to the sine of the load angle. Therefore, to maximize the torque output for a given current, the load angle should be maintained at 90 degrees, where the sine function reaches its maximum value.
+
+The settling of the load angle around 90 degrees in the simulation results indicates that the vector control system is effectively controlling the motor to operate at the point of maximum efficiency. This validates the performance of the control system in managing the machine's dynamics and achieving efficient operation.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=6in]{sections/section3/images/simulationResutls/howTogetloadAngle.png}
+	\caption{Simulink Model for Load Angle Calculation}
+	\label{fig:loadAngleBlocks}
+\end{figure}
+
+
+Figure \ref{fig:loadAngleBlocks} shows the Simulink model and exact blocks used for getting the load angle. The model includes Park transform blocks, which are used to transform the three-phase stator currents into the rotor-flux-oriented reference frame. The transformed $D$ and $Q$ currents are then input to the `\texttt{Atan2}' block labeled 1 in the figure.
+
+The `\texttt{Atan2}' block, also known as the four-quadrant inverse tangent function, calculates the angle from the $D$ and $Q$ currents. Unlike the standard inverse tangent function, the `\texttt{Atan2}' function takes two arguments and can return values in all four quadrants, which is necessary for accurately representing the load angle.
+
+The output of the `\texttt{Atan2}' block, which is the load angle in radians, is then converted to degrees using the `\texttt{Radian to Degree}' block labeled 2 in the figure. The final output is displayed on a scope, which shows the load angle over time.
+
+
+
 
 \subsubsection{SPEED RESPONSE}
 
@@ -141,6 +143,9 @@ Figure \ref{fig:speed_response} shows the speed response of the induction machin
 \end{figure}
 
 Figure \ref{fig:slip_speed} represents the slip speed of the induction machine. The x-axis indicates time (in seconds), and the y-axis denotes the slip speed. The waveform illustrates how the slip speed changes over time. 
+
+
+
 
 
 \subsubsection{CURRENT RESPONSE}
