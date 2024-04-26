@@ -17,6 +17,18 @@ The current control system is a run on ADC end of converion interrupt. The syste
 \end{figure}
 
 
+\subsection{SOFTWARE FLOW CHART}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=6in]{sections/section3/images/softwareflowchart.png}
+	\caption{Software Flow Chart}
+	\label{fig:Software Flow Chart}
+\end{figure}
+
+The software flow chart in Figure \ref{fig:Software Flow Chart} illustrates the sequence of operations in the FOC control system for an AC induction motor. The flow chart outlines the key steps involved in the control process, including the initialization of the system, the measurement of the motor's currents and voltages, the estimation of the motor's speed and position, and the generation of the appropriate control signals to regulate the motor's speed and torque.
+
+
 \subsection{SPEED CONTROL SUBSYSTEM}
 
 The speed control system shown in Figure \ref{fig:speed_control_system} consists of a DataStoreRead block that holds the speed reference value received from the host computer, a Discrete IIR lowpass filter block to cancel the zeros in the system, and a Discrete PID Controller with anti-windup block that takes the speed reference and feedback values as inputs and generates the torque reference as output. 
