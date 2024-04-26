@@ -7,7 +7,7 @@
 The block diagram of the Field-Oriented Control (FOC) system for an AC induction motor is shown in Figure \ref{fig:block_diagram}. The system consists of two main subsystems: the Speed Control Subsystem and the Current Control Subsystem. The Speed Control Subsystem is responsible for generating the torque reference values based on the speed reference and feedback values. The Current Control Subsystem is responsible for tracking the reference currents and generating the appropriate voltage references for the inverter to control the motor's currents. The system also includes a Current Measurement block, a Flux Observer block, and a Speed Estimation block to provide the necessary feedback signals for the control system.
 
 
-The current control system is a run on ADC end of converion interrupt. The system runs at PWM frequency of 15 kHz.
+The current control system is a run on ADC end of converion interrupt. The system operates at a PWM frequency of 15 kHz.
 
 \begin{figure}[H]
 	\centering
@@ -19,6 +19,8 @@ The current control system is a run on ADC end of converion interrupt. The syste
 
 \subsection{SPEED CONTROL SUBSYSTEM}
 
+The speed control system shown in Figure \ref{fig:speed_control_system} consists of a DataStoreRead block that holds the speed reference value received from the host computer, a Discrete IIR lowpass filter block to cancel the zeros in the system, and a Discrete PID Controller with anti-windup block that takes the speed reference and feedback values as inputs and generates the torque reference as output. 
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=4in]{sections/section3/images/simulation/speedControl/speedController.png}
@@ -27,7 +29,7 @@ The current control system is a run on ADC end of converion interrupt. The syste
 \end{figure}
 
 
-The speed control system shown in Figure \ref{fig:speed_control_system} consists of a DataStoreRead block that holds the speed reference value received from the host computer, a Discrete IIR lowpass filter block to cancel the zeros in the system, and a Discrete PID Controller with anti-windup block that takes the speed reference and feedback values as inputs and generates the torque reference as output. The ACIM Control reference block then takes the torque reference and speed reference as inputs and generates the $Isd_{ref}$ and $Isq_{ref}$ values, which are the reference values for the current control loop. The DQ limiter block is used to limit the magnitude of the vector represented in the d-q reference frame, with the option to prioritize either the d-axis or q-axis component.
+The ACIM Control reference block then takes the torque reference and speed reference as inputs and generates the $Isd_{ref}$ and $Isq_{ref}$ values, which are the reference values for the current control loop. The DQ limiter block is used to limit the magnitude of the vector represented in the d-q reference frame, with the option to prioritize either the d-axis or q-axis component.
 
 
 \subsection{CURRENT CONTROL SUBSYSTEM}
@@ -56,17 +58,20 @@ The settling of the load angle around 90 degrees in the simulation results indic
 	\label{fig:simulink_model}
 \end{figure}
 
-Figure \ref{fig:simulink_model} shows the Simulink model and exact blocks used for getting the load angle. The model includes Park transform blocks, which are used to transform the three-phase stator currents into the rotor-flux-oriented reference frame. The transformed D and Q currents are then input to the 'Atan2' block labeled 1 in the figure.
 
-The 'Atan2' block, also known as the four-quadrant inverse tangent function, calculates the angle from the D and Q currents. Unlike the standard inverse tangent function, the 'Atan2' function takes two arguments and can return values in all four quadrants, which is necessary for accurately representing the load angle.
+Figure \ref{fig:simulink_model} shows the Simulink model and exact blocks used for getting the load angle. The model includes Park transform blocks, which are used to transform the three-phase stator currents into the rotor-flux-oriented reference frame. The transformed $D$ and $Q$ currents are then input to the `\texttt{Atan2}' block labeled 1 in the figure.
 
-The output of the 'Atan2' block, which is the load angle in radians, is then converted to degrees using the 'Radian to Degree' block labeled 2 in the figure. The final output is displayed on a scope, which shows the load angle over time. 
+The `\texttt{Atan2}' block, also known as the four-quadrant inverse tangent function, calculates the angle from the $D$ and $Q$ currents. Unlike the standard inverse tangent function, the `\texttt{Atan2}' function takes two arguments and can return values in all four quadrants, which is necessary for accurately representing the load angle.
 
-This Simulink model is a crucial part of the vector control system, as it provides real-time calculation of the load angle, allowing the control system to adjust the motor operation for maximum efficiency.
+The output of the `\texttt{Atan2}' block, which is the load angle in radians, is then converted to degrees using the `\texttt{Radian to Degree}' block labeled 2 in the figure. The final output is displayed on a scope, which shows the load angle over time.
+\end{figure}
 
+I replaced the double quotes with `\texttt{}` to format the block names as code, and used `$` to format the variables `$D$` and `$Q$` as math variables. Let me know if you need further corrections!
 
 \subsubsection{CURRENT MEASUREMENT}
 
+
+The current measurement part of the Input Scaling block shown in Figure \ref{fig:current_measurement}
 
 \begin{figure}[H]
 	\centering
@@ -75,8 +80,6 @@ This Simulink model is a crucial part of the vector control system, as it provid
 	\label{fig:current_measurement}
 \end{figure}
 
-
-The current measurement part of the Input Scaling block shown in Figure \ref{fig:current_measurement}
 
 converts the $Ia_{ADC}$ and $Ib_{ADC}$ inputs from the ADCs to the appropriate data type (int32) and removes the offsets ($Ia_{offset}$ and $Ib_{offset}$) that were previously calibrated. The signals then go through a series of gain blocks to convert them to per-unit (PU) values. The first gain block converts the ADC voltage to the actual voltage, the second gain block converts the voltage to current using the inverter's current sense voltage per amp, and the third gain block converts the current to PU using the motor's base current.
 
