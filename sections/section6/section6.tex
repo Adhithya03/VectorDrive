@@ -41,26 +41,26 @@ To generate symmetrical waveform, the ePWM's internal timer is configured in up-
 \end{tabular}
 
 \vspace{0.2in}
-
 The period of the PWM signal can be calculated using the formula:
-\[
+\begin{equation}
 	T_{\text{PWM}} = 2 \times TBPRD \times T_{\text{TBCLK}}
-\]
+\end{equation}
 where \( TBPRD \) is the time base period.
 
 \subsection{PWM FREQUENCY (\( F_{\text{PWM}} \))}
 
-
-THE frequency of the PWM signal is defined as the inverse of the PWM period:
-\[
+The frequency of the PWM signal is defined as the inverse of the PWM period:
+\begin{equation}
 	F_{\text{PWM}} = \frac{1}{T_{\text{PWM}}}
-\]
+\end{equation}
 
 \subsection{TIME BASE CLOCK (\( T_{\text{TBCLK}} \))}
-THE TIME Base clock is given by:
-\[
+
+The Time Base clock is given by:
+\begin{equation}
 	T_{\text{TBCLK}} = \frac{\text{EPWMCLK}}{\text{HSPCLKDIV} \times \text{CLKDIV}}
-\]
+\end{equation}
+where:
 \begin{itemize}
 	\item \( \text{EPWMCLK} \) is the clock frequency dedicated to the PWM module.
 	\item \( \text{HSPCLKDIV} \) and \( \text{CLKDIV} \) are the dividers for the high-speed PWM clock.
@@ -68,9 +68,9 @@ THE TIME Base clock is given by:
 
 \subsection{TIMER PERIOD (\( TBPRD \))}
 
-\[
-	TBPRD = {T_{\text{PWM}} \over 2 \times T_{\text{TBCLK}}}
-\]
+\begin{equation}
+	TBPRD = \frac{T_{\text{PWM}}}{2 \times T_{\text{TBCLK}}}
+\end{equation}
 
 According to the FSAM20SH60A datasheet, a 15 kHz switching frequency is recommended for optimal performance. The dividers \( \text{HSPCLKDIV} \) and \( \text{CLKDIV} \) are both set to 1. Given that the EPWMCLK is derived from the system clock (SYSCLK) which operates at 200 MHz, the time base clock can be calculated as follows:
 
@@ -78,21 +78,20 @@ Given the PWM period \( T_{\text{PWM}} \) and the TBCLK frequency \( T_{\text{TB
 
 \begin{enumerate}
 	\item \textbf{Calculation of \( T_{\text{PWM}} \):}
-	      \[
-		      T_{\text{PWM}} = \frac{1}{15 \times 10^3} \text{ seconds}
-	      \]
-	      This represents the period of the PWM.
+	\[
+		T_{\text{PWM}} = \frac{1}{15 \times 10^3} \text{ seconds}
+	\]
+	This represents the period of the PWM.
 
 	\item \textbf{Calculation of \( T_{\text{TBCLK}} \):}
-	      \[
-		      TBCLK = \frac{200 \times 10^6}{1 \times 1} = 200 \times 10^6 \text{ Hz}
-	      \]
-	      This is the frequency of the TBCLK (Time Base Clock).
+	\[
+		TBCLK = \frac{200 \times 10^6}{1 \times 1} = 200 \times 10^6 \text{ Hz}
+	\]
+	This is the frequency of the TBCLK (Time Base Clock).
 
 	\item \textbf{Solving for \( TBPRD \):}
-	      With \( T_{\text{PWM}} \) and \( T_{\text{TBCLK}} \) known, we get $6667$.
+	With \( T_{\text{PWM}} \) and \( T_{\text{TBCLK}} \) known, we get $6667$.
 \end{enumerate}
-
 
 Figure \ref{fig:svpwm_block} below shows the ePWM block in Simulink, which is used generate PWM waveforms from microcontroller.
 
@@ -187,10 +186,8 @@ The figure \ref{fig:Complete Hardware Setup} shows the complete hardware setup f
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=4in]{sections/section6/images/hardwareSetup/fullSetupWithMotorAndIPM.jpg}
+	\includegraphics[width=6in]{sections/section6/images/hardwareSetup/fullSetupWithMotorAndIPM.jpg}
 	\caption{Complete Hardware Setup}
 	\label{fig:Complete Hardware Setup}
 \end{figure}
-
-
 \newpage

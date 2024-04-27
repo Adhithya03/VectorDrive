@@ -1,4 +1,5 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[14pt]{extarticle}  % Change from article to extarticle to support 14pt
+\usepackage{extsizes}             % Allows for more font size options
 \usepackage{fontspec}
 
 \setmainfont{Times New Roman}
@@ -7,10 +8,10 @@
 \usepackage{titletoc}
 \usepackage{geometry}
 \geometry{
-    left=25mm,      % you specified 20 mm
-    right=25mm,     % you specified 20 mm
-    top=25mm,       % you specified 25 mm
-    bottom=25mm     % you specified 25 mm
+    left=25mm,
+    right=25mm,
+    top=25mm,
+    bottom=25mm
 }
 \usepackage{graphicx}
 \usepackage{pdfpages}
@@ -23,14 +24,14 @@
 \usepackage{hyperref}
 \usepackage{tocloft}
 \usepackage{array}
-\renewcommand{\cftdot}{}
+\usepackage{setspace}  % Add the setspace package
 
-  
+\onehalfspacing  % Set line spacing to 1.5
+
+\renewcommand{\cftdot}{}
 \makeatletter
 \renewcommand{\@dotsep}{1000}
 \makeatother
-
-
 
 \renewcommand{\contentsname}{} 
 \titleformat{\section}[hang]{\Large\bfseries}{\thesection}{1em}{}
@@ -41,7 +42,7 @@
 
 \newcommand{\prelimsection}[1]{
     \clearpage
-    \phantomsection % Ensures hyperref package compatibility
+    \phantomsection
     \addcontentsline{toc}{section}{#1}
     \section*{\centering #1}
 }
@@ -52,14 +53,17 @@
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 
+
 \titleformat{\section}
-  {\Large\bfseries\centering}
+  {\Large\bfseries\centering\fontsize{16}{19}\selectfont}  % Adjusted for 16pt font size
   {}
   {0pt}
   {\ifnum\value{section}=0\relax
    \else
    Chapter \thesection\\*[10pt] \fi}
   []
+
+
 \titleformat{\subsection}[hang]
   {\large}
   {\thesubsection}
@@ -70,8 +74,6 @@
   {\thesubsubsection}
   {1em}
   {}
-
-
 
 \renewcommand{\cfttoctitlefont}{\hfill\Large\bfseries} 
 \renewcommand{\cftaftertoctitle}{\hfill}
@@ -86,17 +88,14 @@
     \end{minipage}\par\vspace{1em}
 }
 
-
 \renewcommand{\tableofcontents}{
     \begingroup
-    \tocloftpagestyle{empty}   % No page numbers for ToC and following pages
+    \tocloftpagestyle{empty}
     \tocheader
     \@starttoc{toc}
     \endgroup
 }
 
-
-% \setlength{\cftbeforesecskip}{0.4pt}   % Reduce spacing before sections in ToC
 \setlength{\cftsecnumwidth}{3em}
 
 \renewcommand{\listoffigures}{%
@@ -107,6 +106,5 @@
     \section*{\centering LIST OF TABLES}%
     \@starttoc{lot}%
 }
-
 
 \setlength{\cftbeforetoctitleskip}{-3.5em} % Adjust space before ToC title

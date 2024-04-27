@@ -41,20 +41,29 @@ The no-load setup has 1Hp induction motor connected to variable frequency drive 
 
 The no-load power factor is given by:
 
-$$\cos \phi_0 = \frac{P_i}{V_\text{as}I_0}$$
+\begin{equation}
+\cos \phi_0 = \frac{P_i}{V_\text{as}I_0}
+\end{equation}
 
 The magnetizing current is calculated as:
-$$I_m = I_0 \sin \phi_0$$
+\begin{equation}
+I_m = I_0 \sin \phi_0
+\end{equation}
 
 The core-loss current is given by:
-$$I_c = I_0 \cos \phi_0$$
+\begin{equation}
+I_c = I_0 \cos \phi_0
+\end{equation}
 
 The magnetizing inductance is computed from:
-$$L_m = \frac{V_\text{as}}{2\pi f_\text{i}I_m}$$
+\begin{equation}
+L_m = \frac{V_\text{as}}{2\pi f_\text{i}I_m}
+\end{equation}
 
 The core-loss resistance is given by:
-$$R_c = \frac{V_\text{as}}{I_c}$$
-
+\begin{equation}
+R_c = \frac{V_\text{as}}{I_c}
+\end{equation}
 
 \subsubsection{Blocked Rotor Test}
 
@@ -62,25 +71,34 @@ $$R_c = \frac{V_\text{as}}{I_c}$$
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=4in]{sections/section5/images/ParamEstim/blockedCircuitKrish.png}
+	\includegraphics[width=5in]{sections/section5/images/ParamEstim/blockedCircuitKrish.png}
 	\caption{Blocked rotor equivalent circuit}
 	\label{fig:blocked_rotor_test}
 \end{figure}
 
 
 The short-circuit power factor obtained from the equivalent circuit is:
-$$\cos \phi_\text{sc} = \frac{P_\text{sc}}{V_\text{sc}I_\text{sc}}$$
+\begin{equation}
+\cos \phi_\text{sc} = \frac{P_\text{sc}}{V_\text{sc}I_\text{sc}}
+\end{equation}
 
 The short-circuit impedance is given by:
-$$Z_\text{sc} = \frac{V_\text{sc}}{I_\text{sc}}$$
+\begin{equation}
+Z_\text{sc} = \frac{V_\text{sc}}{I_\text{sc}}
+\end{equation}
 
 From which the rotor resistance and total leakage reactance are computed as:
-$$R_r = Z_\text{sc} \cos \phi_\text{sc} - R_s$$
-$$X_\text{eq} = Z_\text{sc} \sin \phi_\text{sc}$$
+\begin{equation}
+R_r = Z_\text{sc} \cos \phi_\text{sc} - R_s
+\end{equation}
+\begin{equation}
+X_\text{eq} = Z_\text{sc} \sin \phi_\text{sc}
+\end{equation}
 
 where the total leakage reactance per phase, $X_\text{eq}$, is the sum of the stator and referred-rotor leakage reactances, given as:
-$$X_\text{eq} = X_\text{ls} + X_\text{lr}$$
-
+\begin{equation}
+X_\text{eq} = X_\text{ls} + X_\text{lr}
+\end{equation}
 
 
 Based on the above test and calculations, the equivalent circuit parameters are computed as follows:
