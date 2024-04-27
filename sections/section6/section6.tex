@@ -153,3 +153,44 @@ An example of 20us dead band time is shown in Figure \ref{fig:deadBand}. The two
 
 
 \newpage
+
+
+
+\subsection{HARDWARE SETUP FOR MOTOR CONTROL}
+
+\subsubsection{DC BUS}
+
+The DC bus shown in Figure \ref{fig:DC Bus Setup} is a critical component in motor control systems, serving as the primary power source for the inverter. In our project, we utilized a 50V DC bus, which was generated using a 230V AC to 48 V transformer and diode bridge rectifer. This DC bus was connected to capacitor banks of 450V 2350uF, ensuring stable, ripple free power delivery to the inverter.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4in]{sections/section6/images/hardwareSetup/DC bus rectifier transformer.jpg}
+	\caption{DC Bus Setup}
+	\label{fig:DC Bus Setup}
+\end{figure}
+
+
+\subsubsection{INVERTER and Controller}
+
+The inverter and controller setup shown in Figure \ref{fig:Inverter and Controller Setup} is a key component in the motor control system, responsible for converting the DC power from the bus into AC power to drive the induction motor. The FSAM20SH60A intelligent power module was used to control the inverter, while the F28379D Launchpad served as the primary controller for the system.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4in]{sections/section6/images/hardwareSetup/IPM and C2000.jpg}
+	\caption{Inverter and Controller Setup}
+	\label{fig:Inverter and Controller Setup}
+\end{figure}
+
+% now we need to add the image of the hardware setup as whole
+
+The figure \ref{fig:Complete Hardware Setup} shows the complete hardware setup for the motor control system, integrating the induction motor, F28379D Launchpad, FSAM20SH60A intelligent power module, and the DC bus. This setup provides a comprehensive platform for developing and testing advanced motor control algorithms and strategies.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4in]{sections/section6/images/hardwareSetup/fullSetupWithMotorAndIPM.jpg}
+	\caption{Complete Hardware Setup}
+	\label{fig:Complete Hardware Setup}
+\end{figure}
+
+
+\newpage
