@@ -128,8 +128,7 @@ Post amplification, the signal was fed into the Analog-to-Digital Converter (ADC
 	\centering
 	\includegraphics[width=6in]{sections/section4/images/PCBDesign/Multisim/MultisimCurrentSensing.png}
 	\caption{Current Sensing Circuit in Multisim}
+	\label{fig:current_sensing}
 \end{figure}
 
-
-
-\newpage
+The current sensing circuit, shown in Figure \ref{fig:current_sensing} , consists of several components that work together to accurately measure current. The circuit utilizes two 5mΩ current shunt resistors (1) to measure the current, a bidirectional differential current sense amplifier (2) to amplify the sensed current, and a voltage divider comprising two 10kΩ resistors (3) to level-shift the sense voltage by 2.5V. Additionally, a decoupling capacitor (4) is used to remove high-frequency noise and oppose quick changes in voltage, while a series resistor is used to match the source impedance with the trace impedance, thereby preventing signal attenuation or reflection.

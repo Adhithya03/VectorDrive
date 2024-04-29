@@ -11,31 +11,31 @@ The current control system is a run on ADC end of converion interrupt. The syste
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=6in]{sections/section3/images/simulation/blockDia.png}
+	\includegraphics[width=7in]{sections/section3/images/simulation/blockDia.png}
 	\caption{Block Diagram of the System}
 	\label{fig:block_diagram}
 \end{figure}
 
 
 \subsection{SOFTWARE FLOW CHART}
+The software flow chart in Figure \ref{fig:Software Flow Chart} illustrates the sequence of operations in the FOC control system for an AC induction motor. The flow chart outlines the key steps involved in the control process, including the initialization of the system, the measurement of the motor's currents and voltages, the estimation of the motor's speed and position, and the generation of the appropriate control signals to regulate the motor's speed and torque.
 
-\begin{figure}[H]
+\begin{figure}
 	\centering
-	\includegraphics[width=6in]{sections/section3/images/softwareflowchart.png}
+	\includegraphics[width=7in]{sections/section3/images/softwareflowchart.png}
 	\caption{Software Flow Chart}
 	\label{fig:Software Flow Chart}
 \end{figure}
 
-The software flow chart in Figure \ref{fig:Software Flow Chart} illustrates the sequence of operations in the FOC control system for an AC induction motor. The flow chart outlines the key steps involved in the control process, including the initialization of the system, the measurement of the motor's currents and voltages, the estimation of the motor's speed and position, and the generation of the appropriate control signals to regulate the motor's speed and torque.
 
 
 \subsection{SPEED CONTROL SUBSYSTEM}
 
 The speed control system shown in Figure \ref{fig:speed_control_system} consists of a DataStoreRead block that holds the speed reference value received from the host computer, a Discrete IIR lowpass filter block to cancel the zeros in the system, and a Discrete PID Controller with anti-windup block that takes the speed reference and feedback values as inputs and generates the torque reference as output. 
 
-\begin{figure}[H]
+\begin{figure}
 	\centering
-	\includegraphics[width=5in]{sections/section3/images/simulation/speedControl/speedController.png}
+	\includegraphics[width=7in]{sections/section3/images/simulation/speedControl/speedController.png}
 	\caption{Speed Control System}
 	\label{fig:speed_control_system}
 \end{figure}
@@ -54,7 +54,7 @@ The current measurement part of the Input Scaling block shown in Figure \ref{fig
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=4in]{sections/section3/images/simulation/inputScaling/currentMeasurement.png}
+	\includegraphics[width=7in]{sections/section3/images/simulation/inputScaling/currentMeasurement.png}
 	\caption{Current Measurement}
 	\label{fig:current_measurement}
 \end{figure}
@@ -67,9 +67,9 @@ converts the $Ia_{ADC}$ and $Ib_{ADC}$ inputs from the ADCs to the appropriate d
 
 
 
-\begin{figure}[H]
+\begin{figure}
 	\centering
-	\includegraphics[width=4in]{sections/section3/images/simulation/inputScaling/fluxObserver.png}
+	\includegraphics[width=7in]{sections/section3/images/simulation/inputScaling/fluxObserver.png}
 	\caption{Position and Speed Estimation}
 	\label{fig:position_speed_estimation}
 \end{figure}
@@ -81,9 +81,9 @@ The position and speed estimation part of the Input Scaling block shown in  Figu
 
 
 
-\begin{figure}[H]
+\begin{figure}
 	\centering
-	\includegraphics[width=4in]{sections/section3/images/simulation/currentControl/controlSystem.png}
+	\includegraphics[width=7in]{sections/section3/images/simulation/currentControl/controlSystem.png}
 	\caption{Current Control System}
 	\label{fig:current_control_system}
 \end{figure}
@@ -103,7 +103,7 @@ The current controllers use Proportional-Integral (PI) controllers to minimize t
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=6in]{sections/section3/images/simulationResutls/LoadAngle.png}
+	\includegraphics[width=7in]{sections/section3/images/simulationResutls/LoadAngle.png}
 	\caption{Load Angle between Rotor Flux and Stator Flux}
 	\label{fig:load_angle_1}
 \end{figure}
@@ -117,9 +117,9 @@ In the ideal case of maximum torque per ampere control strategy, the load angle 
 The settling of the load angle around 90 degrees in the simulation results indicates that the vector control system is effectively controlling the motor to operate at the point of maximum efficiency. This validates the performance of the control system in managing the machine's dynamics and achieving efficient operation.
 
 
-\begin{figure}[H]
+\begin{figure}
 	\centering
-	\includegraphics[width=6in]{sections/section3/images/simulationResutls/howTogetloadAngle.png}
+	\includegraphics[width=7in]{sections/section3/images/simulationResutls/howTogetloadAngle.png}
 	\caption{Simulink Model for Load Angle Calculation}
 	\label{fig:loadAngleBlocks}
 \end{figure}
@@ -136,69 +136,33 @@ The output of the `\texttt{Atan2}' block, which is the load angle in radians, is
 
 \subsubsection{Speed Response}
 
-\begin{figure}[H]
+\begin{figure}
 	\centering
-	\includegraphics[width=6in]{sections/section3/images/simulationResutls/SpeedTrackingNoCursor.png}
+	\includegraphics[width=5in]{sections/section3/images/simulationResutls/SpeedTrackingNoCursor.png}
 	\caption{Speed Response}
 	\label{fig:speed_response}
 \end{figure}
 
 Figure \ref{fig:speed_response} shows the speed response of the induction machine under vector control. The x-axis represents time (in seconds), and the y-axis represents speed (in RPM). The waveform demonstrates the machine's speed over time. The speed reference is set to 0.5 pu. The speed response shows that the machine's speed closely follows the reference, indicating the effectiveness of the speed control subsystem in managing the motor's speed.
 
-
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=6in]{sections/section3/images/simulationResutls/SlipSpeed.png}
-	\caption{Slip Speed}
-	\label{fig:slip_speed}
-\end{figure}
-
-Figure \ref{fig:slip_speed} represents the slip speed of the induction machine. The x-axis indicates time (in seconds), and the y-axis denotes the slip speed. The waveform illustrates how the slip speed changes over time. 
-
-
-
-
-
 \subsubsection{Current Response}
 
 Figure \ref{fig:current_response_IA_IB} displays the feedback or measured currents for Ia and Ib. The x-axis signifies time (in seconds), and the y-axis represents current (in per unit).
 
-\begin{figure}[H]
+\begin{figure}
 	\centering
-	\includegraphics[width=6in]{sections/section3/images/simulationResutls/Ia_Ib_fb.png}
+	\includegraphics[width=5in]{sections/section3/images/simulationResutls/Ia_Ib_fb.png}
 	\caption{Ia and Ib Feedback/Measured Currents}
 	\label{fig:current_response_IA_IB}
 \end{figure}
 
 
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=6in]{sections/section3/images/simulationResutls/Id_ref_Iq_ref.png}
-	\caption{Id and Iq Reference Currents}
-	\label{fig:current_response_Id_ref_Iq_ref}
-\end{figure}
-
-The figure \ref{fig:current_response_Id_ref_Iq_ref} shows the reference currents for Id and Iq. The x-axis indicates time (in seconds), and the y-axis represents current (in per unit). The waveform illustrates how the reference currents change over time.
-
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=6in]{sections/section3/images/simulationResutls/Id_fb_Iq_fb.png}
-	\caption{Id and Iq Feedback Currents}
-	\label{fig:current_response_Id_fb_Iq_fb}
-\end{figure}
-
-
-The figure \ref{fig:current_response_Id_fb_Iq_fb} displays feedback currents for Id and Iq. The x-axis represents time (in seconds), and the y-axis denotes current (in per unit). The waveform demonstrates the changes in the feedback currents over time. The observed trends can be attributed to load variations and control system responses.
-
-
 The figure \ref{fig:current_response_Iq_ref_fb} shows the reference and feedback currents for Iq, which is responsible for producing torque. The x-axis signifies time (in seconds), and the y-axis represents current (in per unit). The waveform illustrates how these currents change over time. 
 
-\begin{figure}[H]
+\begin{figure}
 	\centering
-	\includegraphics[width=6in]{sections/section3/images/simulationResutls/Iq_ref_fb.png}
+	\includegraphics[width=5in]{sections/section3/images/simulationResutls/Iq_ref_fb.png}
 	\caption{Iq Reference and Feedback Currents (Torque producing current)}
 	\label{fig:current_response_Iq_ref_fb}
 \end{figure}
@@ -206,9 +170,9 @@ The figure \ref{fig:current_response_Iq_ref_fb} shows the reference and feedback
 
 The figure \ref{fig:current_response_Id_ref_fb}  displays the reference and feedback currents for Id, which is responsible for magnetizing the motor. The x-axis indicates time (in seconds), and the y-axis represents current (in per unit). The waveform illustrates how these currents change over time. The oscillations at the beginning of the simulation are due to the initial transient response of the control system as it tries to stabilize the motor currents.
 
-\begin{figure}[H]
+\begin{figure}
 	\centering
-	\includegraphics[width=6in]{sections/section3/images/simulationResutls/Id_ref_fb.png}
+	\includegraphics[width=5in]{sections/section3/images/simulationResutls/Id_ref_fb.png}
 	\caption{Id Reference and Feedback Currents (Magnetizing current)}
 	\label{fig:current_response_Id_ref_fb}
 \end{figure}

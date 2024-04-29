@@ -31,8 +31,6 @@ This block diagram represents a typical vector control (also known as field-orie
   
   \item {Park Transform:} This block transforms the three-phase stator currents ($I_a$, $I_b$, $I_c$) into a two-axis current vector ($I_d$, $I_q$) in the rotating reference frame (d-q frame), which simplifies control of the motor.
   
-  \item {Sine-cosine Lookup and Position Generator:} It provides the sine and cosine of the electrical angle $\theta_e$, which is required for the Park and inverse Park transforms. The position generator computes the rotor's electrical angle based on the rotor speed and slip frequency, which is the difference between the electrical frequency and the mechanical rotor speed frequency.
-  
   \item {Slip Speed Estimator:} It estimates the slip speed ($\omega_{\text{slip}}$) of the motor, which is the difference between the synchronous speed and the actual rotor speed. This is used, along with the rotor speed, to compute the electrical angle.
   
   \item {Inverse Park Transform:} This block takes the current references in the d-q axis ($V_{sd}^{\text{ref}}$, $V_{sq}^{\text{ref}}$) and converts them into voltage references in the stationary reference frame ($V_\alpha$, $V_\beta$) required for generating PWM signals.
@@ -43,9 +41,7 @@ This block diagram represents a typical vector control (also known as field-orie
   \item {Inverter:} The inverter takes the DC voltage supply ($V_{dc}$) and switches it to synthesize variable-frequency AC voltage for the motor using the PWM signals it receives. This results in three-phase output voltages ($V_a$, $V_b$, $V_c$) that control the motor.
   
   \item {Induction Motor:} The actual physical motor that converts electrical power into mechanical power, which is controlled by the variable input voltages.
-  
-  \item {Clarke Transform:} This converts the three-phase stator currents ($I_a$, $I_b$, $I_c$) into two orthogonal components ($I_\alpha$, $I_\beta$) in the stationary reference frame, which is a precursor for the Park transform.
-  
+
   \item {Speed Feedback:} The rotor speed is measured and fed back into the control system to adjust the control signal and maintain the desired speed accurately.
 \end{enumerate}
 
@@ -70,7 +66,6 @@ The main components and their working is as follows:
 
 \item Inverter supplies controlled three phase voltages to drive the induction motor.
 
-\item Rotor position/speed sensor provides feedback for transformation calculations.
 \end{enumerate}
 
 \subsection{CHAPTER SUMMARY}

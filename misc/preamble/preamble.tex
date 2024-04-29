@@ -8,10 +8,10 @@
 \usepackage{titletoc}
 \usepackage{geometry}
 \geometry{
-    left=25mm,
-    right=25mm,
-    top=25mm,
-    bottom=25mm
+    left=20mm,
+    right=20mm,
+    top=20mm,
+    bottom=20mm
 }
 \usepackage{graphicx}
 \usepackage{pdfpages}
@@ -46,7 +46,6 @@
     \addcontentsline{toc}{section}{#1}
     \section*{\centering #1}
 }
-
 \newcommand\customfont{\fontsize{14}{20}\selectfont}
 \AtBeginDocument{\customfont}
 
@@ -55,22 +54,22 @@
 
 
 \titleformat{\section}
-  {\Large\bfseries\centering\fontsize{16}{19}\selectfont}  % Adjusted for 16pt font size
+  {\fontsize{16}{19}\selectfont\bfseries\centering}  % Changed to 16pt font size
   {}
   {0pt}
   {\ifnum\value{section}=0\relax
    \else
-   Chapter \thesection\\*[10pt] \fi}
+   CHAPTER \thesection\\*[10pt] \fi}
   []
 
 
 \titleformat{\subsection}[hang]
-  {\large}
+  {\fontsize{16}{19}\selectfont}  % Changed to 16pt font size
   {\thesubsection}
   {1em}
   {}
 \titleformat{\subsubsection}[hang]
-  {}
+  {\fontsize{16}{19}\selectfont}  % Changed to 16pt font size
   {\thesubsubsection}
   {1em}
   {}
