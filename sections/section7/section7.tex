@@ -4,9 +4,14 @@
 
 In conclusion, this thesis successfully demonstrates the design and implementation of an DSP based Sensorless Field Oriented Control of Induction Motor and proves that the smooth and precise control of speed and torque of vector control is unmatched by any other control strategies. The only input to the controller from the user for a given motor is the set speed and load applied to the shaft, while the control takes care of the rest and achieves the set speed in a quick and smooth manner driving the rated load even at low speeds.
 
-The system effectively regulates key motor variables, achieving desired performance levels. Both the magnetizing current (Id) and motor speed accurately track their respective reference values, demonstrating precise control. The Id reference and feedback values converge to 0.2 pu, ensuring proper motor magnetization. Similarly, the motor speed closely follows its reference value of 0.5 pu. Furthermore, the load angle, a critical parameter for torque generation, stabilizes around 85-90 degrees. This indicates operation near the maximum torque per ampere condition, maximizing the motor's efficiency. The control system utilizes a carrier frequency of 15 kHz for pulse width modulation.  It's important to note that the rated frequency for achieving the rated speed of the motor is 50 Hz. The control system dynamically adjusts the output frequency based on the desired speed reference, ensuring optimal performance across the operating range. 
+The system effectively regulates key motor variables, achieving desired performance levels. Both the magnetizing current (Id) and motor speed accurately track their respective reference values, demonstrating precise control. The Id reference and feedback values converge to 0.2 pu, ensuring proper motor magnetization. Similarly, the motor speed closely follows its reference value of 0.5 pu. Furthermore, the load angle, a critical parameter for torque generation, stabilizes around 85-90 degrees. This indicates operation near the maximum torque per ampere condition, maximizing the motor's efficiency. The control system utilizes a carrier frequency of 15 kHz for pulse width modulation.  It's important to note that the rated frequency for achieving the rated speed of the motor is 50 Hz. The control system dynamically adjusts the output frequency based on the desired speed reference, ensuring optimal performance across the operating range.
 
-These results validate the FOC system's ability to achieve stable, controlled, and efficient operation of the AC induction motor under the simulated conditions. 
+
+These results validate the FOC system's ability to achieve stable, controlled, and efficient operation of the AC induction motor under the simulated conditions.
+
+
+While the project faced challenges that prevented the full realization of a closed-loop FOC system, the accomplishments in simulation, control algorithm design, and PCB design provide a valuable basis for future work. Addressing the remaining hardware issues and implementing the closed-loop control will enable the validation of the designed system and its potential application in various motor control scenarios.
+
 
 \subsection{SCOPE FOR FUTURE WORK}
 
@@ -17,82 +22,70 @@ Future work fo this thesis can focus on integrating position sensors and explori
 
 
 \begin{center}
-    {\textbf{REFERENCES}}
+      {\textbf{REFERENCES}}
 \end{center}
 
 \begin{enumerate}
-    \item Chen, Wen Zhuo, et al. “Simulation of Permanent Magnet Synchronous Motor Field Oriented Vector Control System.” Applied Mechanics and Materials, vol. 672–674, Trans Tech Publications, Ltd., Oct. 2014, pp. 1234–1237.
+      \item Chen, Wen Zhuo, et al. “Simulation of Permanent Magnet Synchronous Motor Field Oriented Vector Control System.” Applied Mechanics and Materials, vol. 672–674, Trans Tech Publications, Ltd., Oct. 2014, pp. 1234–1237.
 
 
-          \vspace{5mm} % add 10 millimeters of space
+            \vspace{5mm} % add 10 millimeters of space
 
-    \item D Arun Dominic, Thanga Raj Chelliah,
-          Analysis of field-oriented controlled induction motor drives under sensor faults and an overview of sensorless schemes,
-          ISA Transactions,
-          Volume 53, Issue 5,
-          2014,
-          Pages 1680-1694,
-          ISSN 0019-0578.
+      \item D Arun Dominic, Thanga Raj Chelliah,
+            Analysis of field-oriented controlled induction motor drives under sensor faults and an overview of sensorless schemes,
+            ISA Transactions,
+            Volume 53, Issue 5,
+            2014,
+            Pages 1680-1694,
+            ISSN 0019-0578.
 
-          \vspace{5mm} % add another 10 millimeters of space
+            \vspace{5mm} % add another 10 millimeters of space
 
-    \item D. Xu, B. Wang, G. Zhang, G. Wang and Y. Yu, "A review of sensorless control methods for AC motor drives," in CES Transactions on Electrical Machines and Systems, vol. 2, no. 1, pp. 104-115, March 2018.
-
-
-          \vspace{5mm} % add another 10 millimeters of space
-
-    \item  E. S. Tez, "A simple understanding of field-orientation for AC motor control," IEE Colloquium on Vector Control and Direct Torque Control of Induction Motors, London, UK, 1995, pp. 3/1 -3/4.
-
-          \vspace{5mm} % add another 10 millimeters of space
+      \item D. Xu, B. Wang, G. Zhang, G. Wang and Y. Yu, "A review of sensorless control methods for AC motor drives," in CES Transactions on Electrical Machines and Systems, vol. 2, no. 1, pp. 104-115, March 2018.
 
 
-    \item  Yusivar, N. Hidayat, R. Gunawan and A. Halim, "Implementation of field oriented control for permanent magnet synchronous motor," 2014 International Conference on Electrical Engineering and Computer Science (ICEECS), Kuta, Bali, Indonesia, 2014, pp. 359-362.
-          % Rupprecht Gabriel.F.
+            \vspace{5mm} % add another 10 millimeters of space
+
+      \item  E. S. Tez, "A simple understanding of field-orientation for AC motor control," IEE Colloquium on Vector Control and Direct Torque Control of Induction Motors, London, UK, 1995, pp. 3/1 -3/4.
+
+            \vspace{5mm} % add another 10 millimeters of space
+
+
+      \item  Yusivar, N. Hidayat, R. Gunawan and A. Halim, "Implementation of field oriented control for permanent magnet synchronous motor," 2014 International Conference on Electrical Engineering and Computer Science (ICEECS), Kuta, Bali, Indonesia, 2014, pp. 359-362.
+            % Rupprecht Gabriel.F.
 
 \end{enumerate}
 \subsection*{WEB REFERENCES AND VIDEOS}
 
 
-
 \begin{enumerate}
-    \item Teaching Old Motors New Tricks - An educational resource by Texas Instruments, outlining modern methods for enhancing older motor systems.\\
-          View at: \url{https://www.youtube.com/watch?v=fpTvZlnrsP0}
+      \item Teaching Old Motors New Tricks - An educational resource by Texas Instruments, outlining modern methods for enhancing older motor systems.\\
+            View at: \url{https://www.youtube.com/watch?v=fpTvZlnrsP0}
 
-    \item Electrical Machines and Drives - Theodore Wilidi's comprehensive text, a foundational reference in the field of electrical engineering.
+      \item Electrical Machines and Drives - Theodore Wilidi's comprehensive text, a foundational reference in the field of electrical engineering.
 
-    \item Control Systems Engineering - A seminal book by Norman Nise that delves into the principles and applications of control systems.
+      \item Motor Control Series by Matlab - Provides a structured learning path for motor control systems.\\
+            Available at: \url{https://www.youtube.com/watch?v=gNpoTPzEkco}
 
-    \item Electric Motors and Drives (Fifth Edition) - Austin Hughes and Bill Drury’s book covering pages 261-305 for an in-depth exploration of motor technology. Published in 2019.
+      \item Hardware Design for Variable Frequency Drive(VFD) by Matan Pazi.\\
+            Watch at: \url{https://youtu.be/wUGCEtSXV1I?si=l1Pyao91pGLhClpd}
 
-    \item Motor Control Series by Matlab - Provides a structured learning path for motor control systems.\\
-          Available at: \url{https://www.youtube.com/watch?v=gNpoTPzEkco}
+      \item Park Transformation by Jantzen Lee.\\
+            View at: \url{https://youtu.be/mbJOxqxLkLE?si=CPC0R3QVOjHkjJIL}
+
+      \item Computing Load Angle of Induction motor from Matlab.\\
+            Available at: \url{https://www.mathworks.com/help/mcb/ref/fluxobserver.html}
+
+      \item C2000 Enhanced Pulse Width Modulator (ePWM):\\
+            View at: \url{https://www.ti.com/video/series/C2000-enhanced-pulse-width-modulator.html}
+
+            % PCB design with ultiboard and multisim
+            % https://www.youtube.com/watch?v=DtPCK3qGakM&list=PLVg5xjDHQldd2SjGsXRB4atrrWZ9rLCe_
+
+      \item PCB design with Ultiboard and Multisim.\\
+            Watch at: \url{https://www.youtube.com/watch?v=DtPCK3qGakM&list=PLVg5xjDHQldd2SjGsXRB4atrrWZ9rLCe_}
 
 
-    \item Introduction to EPWM - A general introduction to the concept of EPWM, presented in an accessible format.\\
-          View at: \url{https://www.youtube.com/watch?v=mmvMck6eMsk}
 
-    \item Sinusoidal Pulse Width Modulation (SPWM) - An informative video detailing SPWM and its utilities.\\
-          Watch at: \url{https://www.youtube.com/watch?v=bcSSB_yHFOC}
-
-    \item Tutorial on EPWM - Well-regarded for its clarity and instructive value.\\
-          \url{https://www.youtube.com/watch?v=YGjyaA84MwY}
-
-    \item Brief EPWM Tutorial - A brief but instructive EPWM tutorial; the initial five minutes are particularly insightful.\\
-          Watch at: \url{https://www.youtube.com/watch?v=CL3woGx9dOU}
-
-    \item Duty Cycle Variations with ADC - A resource explaining the adjustments of duty cycles in response to analog-to-digital converter inputs.\\
-          Available at: \url{https://www.youtube.com/watch?v=XLp08Nhev48}
-
-    \item Introductory Guide to C2000 Microcontroller - An introductory guide to the capabilities and features of the C2000 microcontroller from Texas Instruments.\\
-          View at: \url{https://www.youtube.com/watch?v=owC7x7wudx8}
-
-    \item FOC in Induction Motors - \textit{FOC IM Explain Fast and Crisp} - A video offering a concise explanation of Field-Oriented Control (FOC) in Induction Motors.\\
-          Available at: \url{https://www.youtube.com/watch?v=uNs1ScKDO7I}
-
-    \item FOC in PMSM - Detailed exposition on the application of Field-Oriented Control (FOC) in Permanent Magnet Synchronous Motors (PMSM).\\
-          Watch at: \url{https://www.youtube.com/watch?v=wxYTLbYfBP0}
-
-    \item Calibrating ADC offset - Practical guide on how to calibrate the ADC offset, an essential step in ensuring the accuracy of analog-to-digital conversions.\\
-          View at: \url{https://www.youtube.com/watch?v=Lb2VpRjqrXI}
 \end{enumerate}
 

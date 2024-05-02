@@ -83,19 +83,19 @@ Given the PWM period \( T_{\text{PWM}} \) and the TBCLK frequency \( T_{\text{TB
 
 \begin{enumerate}
 	\item \textbf{Calculation of \( T_{\text{PWM}} \):}
-	\[
-		T_{\text{PWM}} = \frac{1}{15 \times 10^3} \text{ seconds}
-	\]
-	This represents the period of the PWM.
+	      \[
+		      T_{\text{PWM}} = \frac{1}{15 \times 10^3} \text{ seconds}
+	      \]
+	      This represents the period of the PWM.
 
 	\item \textbf{Calculation of \( T_{\text{TBCLK}} \):}
-	\[
-		TBCLK = \frac{200 \times 10^6}{1 \times 1} = 200 \times 10^6 \text{ Hz}
-	\]
-	This is the frequency of the TBCLK (Time Base Clock).
+	      \[
+		      TBCLK = \frac{200 \times 10^6}{1 \times 1} = 200 \times 10^6 \text{ Hz}
+	      \]
+	      This is the frequency of the TBCLK (Time Base Clock).
 
 	\item \textbf{Solving for \( TBPRD \):}
-	With \( T_{\text{PWM}} \) and \( T_{\text{TBCLK}} \) known, we get $6667$.
+	      With \( T_{\text{PWM}} \) and \( T_{\text{TBCLK}} \) known, we get $6667$.
 \end{enumerate}
 
 Figure \ref{fig:svpwm_block} below shows the ePWM block in Simulink, which is used generate PWM waveforms from microcontroller.
@@ -187,8 +187,68 @@ The figure \ref{fig:Complete Hardware Setup} shows the complete hardware setup f
 
 \begin{figure}
 	\centering
-	\includegraphics[width=6in]{sections/section6/images/hardwareSetup/fullSetupWithMotorAndIPM.jpg}
+	\includegraphics[width=5in]{sections/section6/images/hardwareSetup/fullSetupWithMotorAndIPM.jpg}
 	\caption{Experimental Setup for Motor Control System}
 	\label{fig:Complete Hardware Setup}
 \end{figure}
+
+\newpage
+\subsection{Challenges Encountered}
+
+This section details the challenges encountered during the implementation of the inverter stage for the vector control of induction machines project.
+
+\subsubsection{Bootstrap Capacitor Charging and High-Side IGBT Turn-On}
+
+\begin{itemize}
+	\item \textbf{Challenge:} Ensuring sufficient time for the bootstrap capacitor to charge before enabling the high-side gate drive pulses to prevent premature turn-on of the high-side IGBTs.
+	\item \textbf{Attempted Solutions:}
+	      \begin{itemize}
+		      \item Implemented a delay mechanism to allow adequate charging time for the bootstrap capacitor.
+		      \item Experimented with different bootstrap capacitor values to optimize the charging process.
+	      \end{itemize}
+\end{itemize}
+
+\subsubsection{False Positives from In-Built Fault Alarm}
+
+\begin{itemize}
+	\item \textbf{Challenge:} The Fairchild IPM's integrated fault alarm, triggered by short-circuit detection through the RSC and CSC pins, exhibited sensitivity to noise, resulting in false positives.
+	\item \textbf{Attempted Solutions:}
+	      \begin{itemize}
+		      \item \textbf{Isolation Attempts:}
+		            \begin{itemize}
+			            \item Separated the control circuitry and power stage grounds using distinct transformers and rectifier circuits to isolate potential noise sources.
+			            \item Temporarily shorted the RSC and CSC pins to ground to investigate the influence of external noise.
+		            \end{itemize}
+		      \item \textbf{Noise Reduction Techniques:}
+		            \begin{itemize}
+			            \item Introduced various metal film capacitors across the DC bus to suppress voltage and current surges caused by switching transients.
+			            \item Reduced the switching frequency to mitigate the rate of voltage and current changes and minimize noise generation.
+		            \end{itemize}
+	      \end{itemize}
+\end{itemize}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=4in]{sections/section6/images/hardwareSetup/VccNoiseAndFaultAlarm.jpg}
+	\caption{False Positives from Fault Alarm}
+	\label{fig:FaultAlarmNoise}
+\end{figure}
+
+\begin{itemize}
+	\item The top waveform is Vcc voltage, which is the power supply for the control side of the IPM.
+	\item The bottom waveform is the fault alarm signal, which is triggered by noise on the Vcc line, which we believe to be the effect of switching.
+\end{itemize}
+
+
+\subsection*{Remaining Challenges and Future Work}
+
+Despite the implemented solutions, the issue of false positives from the fault alarm persisted. Future efforts could explore:
+
+\begin{itemize}
+	\item \textbf{Further Noise Reduction:} Implementing additional filtering techniques on control signals and power supply lines.
+	\item \textbf{Improved PCB Layout:} Analyzing and optimizing the PCB layout to minimize noise coupling paths and ensure optimal placement and routing of critical components.
+\end{itemize}
+
+
+
 \newpage
