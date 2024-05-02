@@ -45,6 +45,7 @@ The set of formulae given below are all terms that relate the PWM frequency we w
 	$CLKDIV$    & Clock divider                               \\ \hline
 \end{tabular}
 
+
 \vspace{0.2in}
 The period of the PWM signal can be calculated using the formula:
 \begin{equation}
@@ -240,14 +241,22 @@ This section details the challenges encountered during the implementation of the
 \end{itemize}
 
 
+
+
 \subsection*{Remaining Challenges and Future Work}
 
+\textbf{Limited Hardware Validation:} The inability to reliably operate the inverter without triggering false alarms prevented the validation of the control algorithms and the assessment of the system's performance under real-world conditions.
+
+
 Despite the implemented solutions, the issue of false positives from the fault alarm persisted. Future efforts could explore:
+
+
 
 \begin{itemize}
 	\item \textbf{Further Noise Reduction:} Implementing additional filtering techniques on control signals and power supply lines.
 	\item \textbf{Improved PCB Layout:} Analyzing and optimizing the PCB layout to minimize noise coupling paths and ensure optimal placement and routing of critical components.
 \end{itemize}
+
 
 
 
