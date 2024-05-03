@@ -13,7 +13,7 @@
 		\centering
 
 		\fbox{\includegraphics[width=4in]{sections/section2/images/blockDiagram.png}}
-
+		\caption{Block Diagram of Field Oriented Control}
 	\end{figure}
 \end{frame}
 
@@ -23,7 +23,7 @@
 		\centering
 
 		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/blockDia.png}}
-
+		\caption{Block Diagram of the System}
 	\end{figure}
 \end{frame}
 
@@ -33,7 +33,7 @@
 		\centering
 
 		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/speedControl/speedController.png}}
-
+		\caption{Speed Control Subsystem}
 	\end{figure}
 \end{frame}
 
@@ -43,7 +43,7 @@
 		\centering
 
 		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/inputScaling/currentMeasurement.png}}
-
+		\caption{Current Measurement}
 	\end{figure}
 \end{frame}
 
@@ -53,7 +53,7 @@
 		\centering
 
 		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/inputScaling/fluxObserver.png}}
-
+		\caption{Position and Speed Estimation}
 	\end{figure}
 \end{frame}
 
@@ -63,7 +63,7 @@
 		\centering
 
 		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/currentControl/controlSystem.png}}
-
+		\caption{Current Control System}
 	\end{figure}
 \end{frame}
 
@@ -73,7 +73,7 @@
 		\centering
 
 		\fbox{\includegraphics[width=4in]{sections/section3/images/simulationResutls/SpeedTrackingNoCursor.png}}
-
+		\caption{Speed Response}
 	\end{figure}
 \end{frame}
 
@@ -83,19 +83,16 @@
 		\centering
 
 		\fbox{\includegraphics[width=4in]{sections/section3/images/simulationResutls/SlipSpeed.png}}
-
+		\caption{Slip Speed}
 	\end{figure}
 \end{frame}
 
-% ... (previous slides)
-
-% Slide 10: Ia and Ib Feedback/Measured Currents
 \begin{frame}{Ia and Ib Feedback/Measured Currents}
 	\begin{figure}
 		\centering
 
 		\fbox{\includegraphics[width=4in]{sections/section3/images/simulationResutls/Ia_Ib_fb.png}}
-
+		\caption{Ia and Ib Feedback/Measured Currents}
 	\end{figure}
 \end{frame}
 
@@ -106,6 +103,7 @@
 
 		\fbox{\includegraphics[width=4in]{sections/section3/images/simulationResutls/Id_ref_Iq_ref.png}}
 
+		\caption{Id and Iq Reference Currents}
 	\end{figure}
 \end{frame}
 
@@ -144,7 +142,9 @@
 	\begin{figure}
 		\centering
 
-		\fbox{\includegraphics[width=4in]{sections/section4/images/inductionMotor/revo.png}}
+		\fbox{\includegraphics[width=3in]{sections/section4/images/inductionMotor/revo.png}}
+
+		\caption{Induction Motor}
 
 	\end{figure}
 \end{frame}
@@ -156,6 +156,7 @@
 
 		\fbox{\includegraphics[width=4in]{sections/section4/images/f23879d/launchxl-f28379d-angled.png}}
 
+		\caption{F28379D Launchpad}
 	\end{figure}
 \end{frame}
 
@@ -164,49 +165,9 @@
 	\begin{figure}
 		\centering
 
-		\fbox{\includegraphics[width=4in]{sections/section4/images/IPM/ipm.png}}
+		\fbox{\includegraphics[width=1.8in]{sections/section4/images/IPM/ipm.png}}
 
-	\end{figure}
-\end{frame}
-
-% Slide 18: Application Circuit from FSAM20SH60A Datasheet
-\begin{frame}{PCB Design}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section4/images/PCBDesign/ApplicationCircuitfromDatasheet.png}}
-
-	\end{figure}
-\end{frame}
-
-% Slide 19: PCB Layout Design in Ultiboard
-\begin{frame}{PCB Layout Design}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section4/images/PCBDesign/Ultiboard/Ultiboard.png}}
-
-	\end{figure}
-\end{frame}
-
-% Slide 20: 3D View of PCB Layout Design in Ultiboard
-\begin{frame}{3D View of PCB Layout}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section4/images/PCBDesign/Ultiboard/3DTopView.png}}
-
-	\end{figure}
-\end{frame}
-
-% Slide 21: Current Sensing Circuit in Multisim
-\begin{frame}{Current Measurement}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section4/images/PCBDesign/Multisim/MultisimCurrentSensing.png}}
-
-		\caption{Current Sensing Circuit in Multisim (one phase shown)}
+		\caption{Intelligent Power Module FSAM20SH60A}
 	\end{figure}
 \end{frame}
 
@@ -254,6 +215,195 @@
 	\end{figure}
 \end{frame}
 
+
+% ACIM formuls
+
+\begin{frame}{ACIM Parameter Estimation Formulas}
+	\begin{columns}[T] % Align columns at the top
+
+		\begin{column}{0.48\textwidth} % Adjust column widths as needed
+
+			\textbf{No-Load Test:}
+
+			\begin{align*}
+				\cos \phi_0 & = \frac{P_i}{V_\text{as}I_0}             \\
+				I_m         & = I_0 \sin \phi_0                        \\
+				I_c         & = I_0 \cos \phi_0                        \\
+				L_m         & = \frac{V_\text{as}}{2\pi f_\text{i}I_m} \\
+				R_c         & = \frac{V_\text{as}}{I_c}
+			\end{align*}
+
+		\end{column}
+
+		\begin{column}{0.48\textwidth}
+
+			\textbf{Blocked Rotor Test:}
+
+			\begin{align*}
+				\cos \phi_\text{sc} & = \frac{P_\text{sc}}{V_\text{sc}I_\text{sc}} \\
+				Z_\text{sc}         & = \frac{V_\text{sc}}{I_\text{sc}}            \\
+				R_r                 & = Z_\text{sc} \cos \phi_\text{sc} - R_s      \\
+				X_\text{eq}         & = Z_\text{sc} \sin \phi_\text{sc}            \\
+				X_\text{eq}         & = X_\text{ls} + X_\text{lr}
+			\end{align*}
+
+		\end{column}
+
+	\end{columns}
+\end{frame}
+
+
+% ACIM parameter estimation results excel sheet image
+
+\begin{frame}{ACIM Parameter Estimation Results}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=2.8in]{sections/ppt/acim.jpg}}
+
+		\caption{ACIM Parameter Estimation Results}
+	\end{figure}
+\end{frame}
+
+
+
+
+
+\begin{frame}{PCB Design}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/section4/images/PCBDesign/ApplicationCircuitfromDatasheet.png}}
+
+	\end{figure}
+\end{frame}
+
+
+% MCU interface circuit
+
+\begin{frame}{MCU Interface Circuit}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/ppt/mcuInt.jpg}}
+
+		\caption{MCU Interface Circuit}
+	\end{figure}
+\end{frame}
+
+
+% Short circuit protection circuit image
+
+\begin{frame}{Short Circuit Protection Circuit}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/ppt/short-circuit-protection.jpg}}
+
+		\caption{Short Circuit Protection Circuit}
+	\end{figure}
+\end{frame}
+
+
+
+% Under voltage lockout circuit image
+
+\begin{frame}{Under Voltage Lockout Circuit}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/ppt/UVLC.jpg}}
+
+		\caption{Under Voltage Lockout Circuit}
+	\end{figure}
+\end{frame}
+
+% Bootstaro circyut image
+
+\begin{frame}{Bootstrap Circuit}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/ppt/bootstrap.jpg}}
+
+		\caption{Bootstrap Circuit}
+	\end{figure}
+\end{frame}
+
+
+% Bootstrap intial charging formula image
+
+\begin{frame}{Bootstrap Initial Charging}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/ppt/initalCharging.jpg}}
+
+		\caption{Bootstrap Initial Charging}
+	\end{figure}
+\end{frame}
+
+% Bootstrap intial charging  graph image
+
+\begin{frame}{Bootstrap Initial Charging}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=3.5in]{sections/ppt/initalChargingGraph.jpg}}
+
+		\caption{Bootstrap Initial Charging}
+	\end{figure}
+\end{frame}
+
+% Slide 19: PCB Layout Design in Ultiboard
+\begin{frame}{PCB Layout Design}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=2.5in]{sections/section4/images/PCBDesign/Ultiboard/Ultiboard.png}}
+
+		\caption{PCB Layout Design in Ultiboard}
+	\end{figure}
+\end{frame}
+
+% Slide 20: 3D View of PCB Layout Design in Ultiboard
+\begin{frame}{3D View of PCB Layout}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=2.5in]{sections/section4/images/PCBDesign/Ultiboard/3DTopView.png}}
+
+		\caption{3D View of PCB Layout Design in Ultiboard}
+
+	\end{figure}
+\end{frame}
+
+
+% Current sense circuit image block diagram
+
+\begin{frame}{Current Sensing Circuit}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/ppt/currentSense.jpg}}
+
+		\caption{Current Sensing Circuit}
+	\end{figure}
+\end{frame}
+
+% Slide 21: Current Sensing Circuit in Multisim
+\begin{frame}{Current Measurement}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/section4/images/PCBDesign/Multisim/MultisimCurrentSensing.png}}
+
+		\caption{Current Sensing Circuit in Multisim (one phase shown)}
+	\end{figure}
+\end{frame}
+
+
+
 % Slide 26: ePWM block in Simulink
 \begin{frame}{Space Vector Pulse Width Modulation}
 	\begin{figure}
@@ -297,29 +447,40 @@
 
 	\begin{columns}[T]
 		\column{0.5\textwidth}
-			\begin{itemize}
-				\item PWM Frequency ($F_{PWM}$): 15 kHz (recommended by FSAM20SH60A datasheet)
-				\item System Clock (SYSCLK): 200 MHz
-				\item High Speed Clock Divider (HSPCLKDIV): 1
-				\item Clock Divider (CLKDIV): 1
-			\end{itemize}
+		\begin{itemize}
+			\item PWM Frequency ($F_{PWM}$): 15 kHz (recommended by FSAM20SH60A datasheet)
+			\item System Clock (SYSCLK): 200 MHz
+			\item High Speed Clock Divider (HSPCLKDIV): 1
+			\item Clock Divider (CLKDIV): 1
+		\end{itemize}
 		\column{0.5\textwidth}
-			\begin{align*}
-				T_{PWM}   & = \frac{1}{F_{PWM}} \\
-				T_{TBCLK} & = \frac{SYSCLK}{HSPCLKDIV \times CLKDIV} \\
-				TBPRD     & = \frac{T_{PWM}}{2 \times T_{TBCLK}}
-			\end{align*}
+		\begin{align*}
+			T_{PWM}   & = \frac{1}{F_{PWM}}                      \\
+			T_{TBCLK} & = \frac{SYSCLK}{HSPCLKDIV \times CLKDIV} \\
+			TBPRD     & = \frac{T_{PWM}}{2 \times T_{TBCLK}}
+		\end{align*}
 	\end{columns}
 
 	\vspace{0.5cm}
 
 	\begin{align*}
-		T_{PWM}   & = \frac{1}{15 \times 10^3} \text{ seconds} \\
-		T_{TBCLK} & = \frac{200 \times 10^6}{1 \times 1} = 200 \times 10^6 \text{ Hz} \\
+		T_{PWM}   & = \frac{1}{15 \times 10^3} \text{ seconds}                               \\
+		T_{TBCLK} & = \frac{200 \times 10^6}{1 \times 1} = 200 \times 10^6 \text{ Hz}        \\
 		TBPRD     & = \frac{\frac{1}{15 \times 10^3}}{2 \times 200 \times 10^6} \approx 6667
 	\end{align*}
 
 	\tiny{Therefore, the Timer Period (TBPRD) is 6667.}
+\end{frame}
+
+
+% SVPWM simulink model
+
+\begin{frame}{SVPWM Simulink Model}
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=4in]{sections/ppt/SVPWM_Simulink.png}}
+		\caption{SVPWM Simulink Model}
+	\end{figure}
 \end{frame}
 
 
