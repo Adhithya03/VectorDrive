@@ -402,7 +402,17 @@
 	\end{figure}
 \end{frame}
 
+% ePWM module block diagram
 
+\begin{frame}{ePWM Module}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/ppt/ePWM.png}}
+
+		\caption{ePWM Module}
+	\end{figure}
+\end{frame}
 
 % Slide 26: ePWM block in Simulink
 \begin{frame}{Space Vector Pulse Width Modulation}
@@ -513,8 +523,21 @@
 	\end{figure}
 \end{frame}
 
+
+% dead band various configs
+
+\begin{frame}{Dead Band Configuration}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=2.3in]{sections/ppt/deadbandConfigs.png}}
+
+		\caption{Dead band time}
+	\end{figure}
+\end{frame}
+
 % Slide 30: Dead band time
-\begin{frame}{Dead Band Implementation}
+\begin{frame}{Dead Band Configuration}
 	\begin{figure}
 		\centering
 
@@ -523,7 +546,91 @@
 	\end{figure}
 \end{frame}
 
-% Image fbox
 
+% Slide for DC Bus
+\begin{frame}{DC Bus Setup}
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=3in]{sections/section6/images/hardwareSetup/DC bus rectifier transformer.jpg}
+		}\caption{DC Bus Setup: 230V AC to 48V DC conversion with capacitor banks for stable power delivery}
+	\end{figure}
+\end{frame}
 
+% Slide for Inverter and Controller
+\begin{frame}{Inverter and Controller}
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=2.3in]{sections/section6/images/hardwareSetup/IPM and C2000.jpg}
+		}\caption{Inverter (FSAM20SH60A) and Controller (F28379D Launchpad) Setup}
+	\end{figure}
+\end{frame}
+
+% Slide for Full Setup
+\begin{frame}{Complete Hardware Setup}
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=3in]{sections/section6/images/hardwareSetup/fullSetupWithMotorAndIPM.jpg}
+		}\caption{Experimental Setup for Motor Control System with Induction Motor, DC Bus, Inverter, and Controller}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Challenges: False Positives from Fault Alarm}
+
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=4in]{sections/section6/images/hardwareSetup/VccNoiseAndFaultAlarm.jpg}
+		}\caption{Vcc Noise and Fault Alarm Signal}
+	\end{figure}
+
+	\begin{itemize}
+		\item Top waveform: Vcc voltage (power supply for IPM control)
+		\item Bottom waveform: Fault alarm signal (triggered by noise on Vcc)
+	\end{itemize}
+
+\end{frame}
+\begin{frame}{Mitigation Strategies}
+
+	\begin{itemize}
+		\item \textbf{Isolation Attempts:}
+			\begin{itemize}
+				\item Separate control and power stage grounds using separate transformers and rectifiers.
+				\item Temporarily shorted RSC and CSC pins to ground to assess external noise influence.
+			\end{itemize}
+		\item \textbf{Noise Reduction Techniques:}
+			\begin{itemize}
+				\item Added metal film capacitors across the DC bus to suppress switching transients.
+				\item Reduced switching frequency to minimize voltage/current change rate and noise.
+			\end{itemize}
+		\item \textbf{Future Considerations:}
+			\begin{itemize}
+				\item Further noise reduction through filtering on control signals and power supply lines.
+				\item Improved PCB layout to minimize noise coupling paths and optimize component placement.
+			\end{itemize}
+	\end{itemize}
+	
+	\end{frame}
+
+	\begin{frame}{Conclusion}
+
+		\begin{itemize}
+			\item \textbf{Achievements:}
+				\begin{itemize}
+					\item Successful simulation of FOC system demonstrating significant performance improvements.
+					\item Design and development of hardware setup including PCB design and component integration.
+					\item Identification and analysis of challenges related to noise and false alarms.
+				\end{itemize}
+			\item \textbf{Challenges:}
+				\begin{itemize}
+					\item Persistent false positives from the IPM's fault alarm despite implemented mitigation strategies.
+					\item Limited hardware validation due to the unresolved fault alarm issue.
+				\end{itemize}
+			\item \textbf{Future Work:}
+				\begin{itemize}
+					\item Explore additional noise reduction techniques and PCB layout optimization.
+					\item Investigate alternative IPM modules or fault detection mechanisms.
+					\item Implement and validate the closed-loop FOC system in hardware upon resolving the challenges.
+				\end{itemize}
+		\end{itemize}
+		
+		\end{frame}
 \end{document}
