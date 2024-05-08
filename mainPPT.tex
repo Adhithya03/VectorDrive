@@ -21,7 +21,7 @@
 		\item Requires complex math ops: coordinate transformations, vector calculations, and PWM generation
 		\item Rotor flux angle estimation via sensorless techniques or physical sensors
 	\end{itemize}
-	\end{frame}
+\end{frame}
 
 \begin{frame}
 	\frametitle{Advantages of Field Oriented Control (FOC)}
@@ -50,6 +50,17 @@
 	\end{itemize}
 \end{frame}
 
+% coordinate transform images
+
+\begin{frame}{Coordinate Transformations}
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=4in]{sections/finalReview/coordianteTransforms.png}}
+		\caption{Coordinate Transformations}
+	\end{figure}
+\end{frame}
+
+
 % Slide 3: Block Diagram of the System
 \begin{frame}{Block Diagram of the System}
 	\begin{figure}
@@ -75,8 +86,8 @@
 	\begin{figure}
 		\centering
 
-		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/inputScaling/currentMeasurement.png}}
-		\caption{Current Measurement}
+		\fbox{\includegraphics[width=4in]{sections/finalReview/adcBlock.png}}
+		\caption{ADC block for reading current}
 	\end{figure}
 \end{frame}
 
@@ -212,43 +223,43 @@
 
 \begin{frame}{Discrete inverter vs IPM}
 	\begin{figure}
-	  \begin{tabular}{cc}
-		\fbox{\includegraphics[width=1.9in]{sections/finalReview/discreteInverter.png}}
-		&
-		\fbox{\includegraphics[width=1.2in]{sections/section4/images/IPM/ipm.png}} \\
-		\small (a) Discrete Inverter
-		&
-		\small (b) Intelligent Power Module (IPM)
-	  \end{tabular}
-	  \caption{Discrete Inverter vs Intelligent Power Module (IPM)}
-	\end{figure}
-  \end{frame}
-
-
-  
-  \begin{frame}{Induction Motor}
-	\begin{tabular}{cc}
-	  \begin{minipage}[c]{0.4\textwidth}
-		\centering
-		\fbox{\includegraphics[width=1.8in]{sections/section4/images/inductionMotor/revo.png}}
-		\captionof{figure}{Induction Motor}
-	  \end{minipage} &
-	  \begin{minipage}[c]{0.6\textwidth}
-		\centering
-		\begin{tabular}{|c|c|}
-		  \hline
-		  \textbf{Parameter} & \textbf{Value} \\ \hline
-		  Power & 0.25 Hp \\ \hline
-		  Voltage & 415 V (L-L) RMS \\ \hline
-		  Current & 1.4 A \\ \hline
-		  Frequency & 50 Hz \\ \hline
-		  Speed & 1440 rpm \\ \hline
-		  Phase & 3 \\ \hline
+		\begin{tabular}{cc}
+			\fbox{\includegraphics[width=1.9in]{sections/finalReview/discreteInverter.png}}
+			 &
+			\fbox{\includegraphics[width=1.2in]{sections/section4/images/IPM/ipm.png}} \\
+			\small (a) Discrete Inverter
+			 &
+			\small (b) Intelligent Power Module (IPM)
 		\end{tabular}
-		\captionof{table}{Name-plate Details of Induction motor}
-	  \end{minipage}
+		\caption{Discrete Inverter vs Intelligent Power Module (IPM)}
+	\end{figure}
+\end{frame}
+
+
+
+\begin{frame}{Induction Motor}
+	\begin{tabular}{cc}
+		\begin{minipage}[c]{0.4\textwidth}
+			\centering
+			\fbox{\includegraphics[width=1.8in]{sections/section4/images/inductionMotor/revo.png}}
+			\captionof{figure}{Induction Motor}
+		\end{minipage} &
+		\begin{minipage}[c]{0.6\textwidth}
+			\centering
+			\begin{tabular}{|c|c|}
+				\hline
+				\textbf{Parameter} & \textbf{Value}  \\ \hline
+				Power              & 0.25 Hp         \\ \hline
+				Voltage            & 415 V (L-L) RMS \\ \hline
+				Current            & 1.4 A           \\ \hline
+				Frequency          & 50 Hz           \\ \hline
+				Speed              & 1440 rpm        \\ \hline
+				Phase              & 3               \\ \hline
+			\end{tabular}
+			\captionof{table}{Name-plate Details of Induction motor}
+		\end{minipage}
 	\end{tabular}
-  \end{frame}
+\end{frame}
 
 \begin{frame}{Hardware block diagram}
 	\begin{figure}
@@ -263,41 +274,41 @@
 
 \begin{frame}{ACIM Parameter Estimation: No-Load Test}
 	\begin{columns}
-	  \column{0.5\textwidth}
+		\column{0.5\textwidth}
 		\begin{figure}
-		  \centering
-		  \fbox{\includegraphics[width=2.2in]{sections/section5/images/ParamEstim/SetupNoload.jpg}}
-		  \caption{No-load test setup}
+			\centering
+			\fbox{\includegraphics[width=2.2in]{sections/section5/images/ParamEstim/SetupNoload.jpg}}
+			\caption{No-load test setup}
 		\end{figure}
 		\begin{itemize}
-		  \item Slip speed is made zero.
+			\item Slip speed is made zero.
 		\end{itemize}
-	  \column{0.5\textwidth}
+		\column{0.5\textwidth}
 		\begin{figure}
-		  \centering
-		  \fbox{\includegraphics[width=2.2in]{sections/section5/images/ParamEstim/FlukeVoltAmpHertz.png}}
-		  \caption{Fluke 434 power analyzer}
+			\centering
+			\fbox{\includegraphics[width=2.2in]{sections/section5/images/ParamEstim/FlukeVoltAmpHertz.png}}
+			\caption{Fluke 434 power analyzer}
 		\end{figure}
 	\end{columns}
-  \end{frame}
+\end{frame}
 
 % Slide: No-load and Blocked Rotor Test Circuits
 \begin{frame}{ACIM Parameter Estimation: Test Circuits}
 	\begin{columns}
-	  \column{0.5\textwidth}
+		\column{0.5\textwidth}
 		\begin{figure}
-		  \centering
-		  \fbox{\includegraphics[width=2in]{sections/section5/images/ParamEstim/noloadCircuitKrish.png}}
-		  \caption{No-load test circuit}
+			\centering
+			\fbox{\includegraphics[width=2in]{sections/section5/images/ParamEstim/noloadCircuitKrish.png}}
+			\caption{No-load test circuit}
 		\end{figure}
-	  \column{0.5\textwidth}
+		\column{0.5\textwidth}
 		\begin{figure}
-		  \centering
-		  \fbox{\includegraphics[width=2in]{sections/section5/images/ParamEstim/blockedCircuitKrish.png}}
-		  \caption{Blocked rotor test circuit}
+			\centering
+			\fbox{\includegraphics[width=2in]{sections/section5/images/ParamEstim/blockedCircuitKrish.png}}
+			\caption{Blocked rotor test circuit}
 		\end{figure}
 	\end{columns}
-  \end{frame}
+\end{frame}
 % ACIM formuls
 
 \begin{frame}{ACIM Parameter Estimation Formulas}
@@ -338,43 +349,43 @@
 
 \begin{frame}{ACIM Parameter Estimation Results}
 	\begin{columns}
-	  \column{0.5\textwidth}
+		\column{0.5\textwidth}
 		\begin{figure}
-		  \centering
-		  \fbox{\includegraphics[width=2.2in]{sections/ppt/acim.jpg}}
-		  \caption{ACIM Parameter Estimation Results}
+			\centering
+			\fbox{\includegraphics[width=2.2in]{sections/ppt/acim.jpg}}
+			\caption{ACIM Parameter Estimation Results}
 		\end{figure}
-	  \column{0.5\textwidth}
+		\column{0.5\textwidth}
 		\scalebox{0.8}{
-		\begin{tabular}{|l|l|}
-		  \hline
-		  \multicolumn{2}{|c|}{No-Load Test} \\
-		  \hline
-		  Parameter & Value \\
-		  \hline
-		  POWER FACTOR MEASURED & 0.20 \\
-		  PHI (radians) & 1.37 \\
-		  Im (A) & 0.75 \\
-		  Ic (A) & 0.15 \\
-		  Lm (H) & 1.02 \\
-		  Rc (Ohm) & 1562.61 \\
-		  \hline
-		  \multicolumn{2}{|c|}{Blocked Test} \\
-		  \hline
-		  Parameter & Value \\
-		  \hline
-		  POWER FACTOR MEASURED & 0.57 \\
-		  PHI (radians) & 0.97 \\
-		  Zsc (Ohm) & 123.72 \\
-		  Rr (Ohm) & 5.11 \\
-		  Xeq (Ohm) & 101.94 \\
-		  Xls (Ohm) & 50.97 \\
-		  Xlr (Ohm) & 50.97 \\
-		  \hline
-		\end{tabular}
+			\begin{tabular}{|l|l|}
+				\hline
+				\multicolumn{2}{|c|}{No-Load Test} \\
+				\hline
+				Parameter             & Value      \\
+				\hline
+				POWER FACTOR MEASURED & 0.20       \\
+				PHI (radians)         & 1.37       \\
+				Im (A)                & 0.75       \\
+				Ic (A)                & 0.15       \\
+				Lm (H)                & 1.02       \\
+				Rc (Ohm)              & 1562.61    \\
+				\hline
+				\multicolumn{2}{|c|}{Blocked Test} \\
+				\hline
+				Parameter             & Value      \\
+				\hline
+				POWER FACTOR MEASURED & 0.57       \\
+				PHI (radians)         & 0.97       \\
+				Zsc (Ohm)             & 123.72     \\
+				Rr (Ohm)              & 5.11       \\
+				Xeq (Ohm)             & 101.94     \\
+				Xls (Ohm)             & 50.97      \\
+				Xlr (Ohm)             & 50.97      \\
+				\hline
+			\end{tabular}
 		}
 	\end{columns}
-  \end{frame}
+\end{frame}
 
 
 
@@ -454,50 +465,46 @@
 \end{frame}
 
 
-% Bootstrap intial charging formula image
-
-\begin{frame}{Bootstrap Initial Charging}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/ppt/initalCharging.jpg}}
-
-		\caption{Bootstrap Initial Charging}
-	\end{figure}
-\end{frame}
 
 % Bootstrap intial charging  graph image
 
 \begin{frame}{Bootstrap Initial Charging}
 	\begin{figure}
 		\centering
-
-		\fbox{\includegraphics[width=3.5in]{sections/ppt/initalChargingGraph.jpg}}
-
+		\includegraphics[width=2.6in]{sections/ppt/initalChargingGraph.jpg}
 		\caption{Bootstrap Initial Charging}
 	\end{figure}
+
+	\begin{equation}
+		t_\text{charge} = C_\text{BS} \times R_\text{BS} \times \frac{1}{\Delta} \times \ln\left(\frac{V_\text{CC} - V_\text{BS(min)}}{V_\text{F} - V_\text{LS}}\right)
+	\end{equation}
 \end{frame}
 
 % Slide 19: PCB Layout Design in Ultiboard
 \begin{frame}{PCB Layout Design}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=2.5in]{sections/section4/images/PCBDesign/Ultiboard/Ultiboard.png}}
-
-		\caption{PCB Layout Design in Ultiboard}
-	\end{figure}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=1.8in]{sections/section4/images/PCBDesign/Ultiboard/Ultiboard.png}}
+			\caption{PCB Layout Design in Ultiboard}
+		\end{figure}
+		\column{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=1.8in]{sections/section4/images/PCBDesign/Ultiboard/3DTopView.png}}
+			\caption{3D View of PCB Layout Design in Ultiboard}
+		\end{figure}
+	\end{columns}
 \end{frame}
 
-% Slide 20: 3D View of PCB Layout Design in Ultiboard
-\begin{frame}{3D View of PCB Layout}
+% rotor load angle image
+
+\begin{frame}{Rotor Load Angle}
 	\begin{figure}
 		\centering
-
-		\fbox{\includegraphics[width=2.5in]{sections/section4/images/PCBDesign/Ultiboard/3DTopView.png}}
-
-		\caption{3D View of PCB Layout Design in Ultiboard}
-
+		\fbox{\includegraphics[width=1.5in]{sections/finalReview/rotorFlux.png}}
+		\caption{Rotor Load Angle}
 	\end{figure}
 \end{frame}
 
@@ -542,14 +549,14 @@
 	\end{figure}
 \end{frame}
 
-% Slide 26: ePWM block in Simulink
-\begin{frame}{Space Vector Pulse Width Modulation}
+
+% ePWM sub-module and it's graph
+
+\begin{frame}{ePWM Sub-Module}
 	\begin{figure}
 		\centering
-
-		\fbox{\includegraphics[width=2in]{sections/section6/images/SVPWM/ePWMBlock.png}}
-
-		\caption{ePWM block in Simulink}
+		\fbox{\includegraphics[width=2in]{sections/finalReview/ePWMEachSubmoduleGraph.png}}
+		\caption{ePWM Sub-Module}
 	\end{figure}
 \end{frame}
 
@@ -620,6 +627,27 @@
 \end{frame}
 
 
+% svpwm switches and states images
+
+\begin{frame}{SVPWM Switching States}
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=2.8in]{sections/finalReview/svpwmSwitches.png}}
+		\caption{SVPWM Switching States}
+	\end{figure}
+\end{frame}
+
+% svpwm gate pulses may look like.
+
+\begin{frame}{SVPWM Gate Pulses}
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=4in]{sections/finalReview/svpwmgatepulses.png}}
+		\caption{SVPWM Gate Pulses}
+	\end{figure}
+\end{frame}
+
+
 \begin{frame}{Space Vector Pulse Width Modulation (SVPWM)}
 
 	\begin{figure}
@@ -632,7 +660,7 @@
 		\item \textbf{Increased Efficiency:} SVPWM reduces harmonic distortion.
 		\item \textbf{Higher Voltage Utilization:} SVPWM allows 15\% more DC bus voltage.
 		\item \textbf{Reduced Switching Losses}
-	\end{itemize}	
+	\end{itemize}
 
 \end{frame}
 
@@ -774,34 +802,34 @@
 
 \begin{frame}{Literature Review}
 	\begin{center}
-		
-	\begin{table}
-		\centering
-		\tiny
-		\rowcolors{2}{blue!74}{black!80} % this command adds alternating color for rows
-		\begin{tabular}{|p{1.4cm}|p{2.cm}|c|p{6cm}|}
-			\hline
-			\rowcolor{yellow} % this command changes the header color to yellow
-	
-			 \textcolor{black}{\textbf{Author}} & \textcolor{black}{\textbf{Title}} & \textcolor{black}{\textbf{Year}} & \textcolor{black}{\textbf{Summary}}  \\ 
-			
-			\hline
-			\vspace{0.005in} E.S.Tez & \vspace{0.005in} A Simple Understanding Of Field Orientation For Ac Motor Control & \vspace{0.01in} 1995 &  \vspace{0.005in} \RaggedRight The article teaches field-orientation for AC motor control, which aligns the stator and rotor fields for fast torque control. It corrects some wrong ideas about motor models and parameters, and shows a new field-orientation design called INVECTER.  \\
-		 \hline
-		  \vspace{0.1in}
-		   \vspace{0.005in}  Wenzhuo Chen et.al & \vspace{0.005in}  Simulation of Permanent Magnet Synchronous Motor Field oriented Vector Control System & 2014 & \vspace{0.04in} \RaggedRight The text describes coordinate conversion's role in managing motor currents, especially excitation and torque. It highlights PI controllers and SVPWM pulses for precise control of PMSM. Simulation results validate the vector control method's accuracy, supporting real-world system design.\vspace{0.04in} \\
-			\hline
-		   \vspace{0.005in}  Dianguo Xu  et.al &\vspace{0.005in}  A Review of Sensorless Control Methods for AC Motor Drives & 2018  & \vspace{0.04in} \RaggedRight Sensorless control - signal injection methods are simpler and easier to execute than model reference adaptive system and Kalman filter. Requires large amount of data. \vspace{0.04in} \\
-			\hline 
-		   
-			\vspace{0.005in}  Rupprecht Gabriel. et al & \vspace{0.005in} Implementation of Field Oriented Control for Permanent Magnet Synchronous Motor & 1980 & \vspace{0.04in} \RaggedRight The article shows how microprocessors can control AC machines better with field orientation, which improves their dynamic performance. It gives the theory of AC motor control by field orientation and some results from a test drive. It explains the induction motor model and talks about the future possibilities in the field. \vspace{0.04in} \\
-			\hline        
-			\vspace{0.005in}  Arun Dominic Dn et.al & Analysis of field-oriented controlled induction motor drives overview of sensorless scheme & 2014 & \vspace{0.04in} \RaggedRight This article  explores use of blanking periods and space vector modulation to enhance low-speed drive performance, providing a thorough technique review.\\
-			\hline
-		\end{tabular}
-		\label{tab:lit-survey}
-	\end{table}
+
+		\begin{table}
+			\centering
+			\tiny
+			\rowcolors{2}{blue!74}{black!80} % this command adds alternating color for rows
+			\begin{tabular}{|p{1.4cm}|p{2.cm}|c|p{6cm}|}
+				\hline
+				\rowcolor{yellow} % this command changes the header color to yellow
+
+				\textcolor{black}{\textbf{Author}}         & \textcolor{black}{\textbf{Title}}                                                                       & \textcolor{black}{\textbf{Year}} & \textcolor{black}{\textbf{Summary}}                                                                                                                                                                                                                                                                                                                                               \\
+
+				\hline
+				\vspace{0.005in} E.S.Tez                   & \vspace{0.005in} A Simple Understanding Of Field Orientation For Ac Motor Control                       & \vspace{0.01in} 1995             & \vspace{0.005in} \RaggedRight The article teaches field-orientation for AC motor control, which aligns the stator and rotor fields for fast torque control. It corrects some wrong ideas about motor models and parameters, and shows a new field-orientation design called INVECTER.                                                                                             \\
+				\hline
+				\vspace{0.1in}
+				\vspace{0.005in}  Wenzhuo Chen et.al       & \vspace{0.005in}  Simulation of Permanent Magnet Synchronous Motor Field oriented Vector Control System & 2014                             & \vspace{0.04in} \RaggedRight The text describes coordinate conversion's role in managing motor currents, especially excitation and torque. It highlights PI controllers and SVPWM pulses for precise control of PMSM. Simulation results validate the vector control method's accuracy, supporting real-world system design.\vspace{0.04in}                                       \\
+				\hline
+				\vspace{0.005in}  Dianguo Xu  et.al        & \vspace{0.005in}  A Review of Sensorless Control Methods for AC Motor Drives                            & 2018                             & \vspace{0.04in} \RaggedRight Sensorless control - signal injection methods are simpler and easier to execute than model reference adaptive system and Kalman filter. Requires large amount of data. \vspace{0.04in}                                                                                                                                                               \\
+				\hline
+
+				\vspace{0.005in}  Rupprecht Gabriel. et al & \vspace{0.005in} Implementation of Field Oriented Control for Permanent Magnet Synchronous Motor        & 1980                             & \vspace{0.04in} \RaggedRight The article shows how microprocessors can control AC machines better with field orientation, which improves their dynamic performance. It gives the theory of AC motor control by field orientation and some results from a test drive. It explains the induction motor model and talks about the future possibilities in the field. \vspace{0.04in} \\
+				\hline
+				\vspace{0.005in}  Arun Dominic Dn et.al    & Analysis of field-oriented controlled induction motor drives overview of sensorless scheme              & 2014                             & \vspace{0.04in} \RaggedRight This article  explores use of blanking periods and space vector modulation to enhance low-speed drive performance, providing a thorough technique review.                                                                                                                                                                                            \\
+				\hline
+			\end{tabular}
+			\label{tab:lit-survey}
+		\end{table}
 	\end{center}
-	\end{frame}
+\end{frame}
 
 \end{document}
