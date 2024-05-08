@@ -14,8 +14,17 @@
 \end{frame}
 
 
+\begin{frame}{Introduction to Vector Control of Induction Motor}
+	\begin{itemize}
+		\item Decouples stator current components in a rotating reference frame
+		\item Offers better dynamic response, speed accuracy, efficiency, and power factor
+		\item Requires complex math ops: coordinate transformations, vector calculations, and PWM generation
+		\item Rotor flux angle estimation via sensorless techniques or physical sensors
+	\end{itemize}
+	\end{frame}
+
 \begin{frame}
-	\frametitle{Advantages of Vector Control in Induction Motors}
+	\frametitle{Advantages of Field Oriented Control (FOC)}
 	\begin{itemize}
 		\item \textbf{Dynamic Response:} Faster and more accurate response to changes.
 		\item \textbf{Efficiency:} Reduced energy consumption and increased performance.
@@ -161,63 +170,93 @@
 	\end{figure}
 \end{frame}
 
+
 \begin{frame}{C2000 Features for Implementing Vector Control Algorithm}
 	\begin{columns}
 		\column{0.5\textwidth}
-		\begin{figure}
+		\begin{minipage}[c]{\linewidth}
 			\centering
 			\fbox{\includegraphics[width=2in]{sections/section4/images/f23879d/launchxl-f28379d-angled.png}}
 			\caption{F28379D Launchpad}
-		\end{figure}
+		\end{minipage}
 		\column{0.5\textwidth}
 		\begin{itemize}
-			\item \textbf{Dual-Core C28x Architecture:} Enables simultaneous execution of control tasks and communication tasks, improving overall system performance.
-			\item \textbf{Control Law Accelerator (CLA):} Offloads the CPU by executing time-critical control algorithms, freeing the CPU for other tasks.
-			\item \textbf{High-Resolution PWM:} Offers precise control over motor's speed and torque, critical for effective Field Oriented Control (FOC).
-			\item \textbf{Integrated ADCs:} Facilitates accurate and efficient sensing of motor currents and voltages, a key requirement in FOC.
-			\item \textbf{Floating Point Unit:} Simplifies the implementation of complex mathematical algorithms used in FOC.
+			\item 200 MHz C28x CPU
+			\item Control Law Accelerator (CLA)
+			\item 12-bit/16-bit ADCs
+			\item Enhanced Pulse Width Modulators (ePWM)
 		\end{itemize}
 	\end{columns}
 \end{frame}
 
-
-\begin{frame}{Advantages of Using Intelligent Power Module FSAM20SH60A}
+\begin{frame}{Intelligent Power Module FSAM20SH60A}
 	\begin{columns}
-		\column{0.5\textwidth}
+		\column{0.3\textwidth}
 		\begin{figure}
 			\centering
-			\fbox{\includegraphics[width=0.9in]{sections/section4/images/IPM/ipm.png}}
+			\fbox{\includegraphics[width=1.3in]{sections/section4/images/IPM/ipm.png}}
 			\caption{Intelligent Power Module FSAM20SH60A}
 		\end{figure}
-		\column{0.5\textwidth}
+		\column{0.6\textwidth}
 		\begin{itemize}
-			\item \textbf{Compact Design:} Integrates power devices, drivers, and protection circuitry in a single package, saving space and simplifying system design.
-			\item \textbf{Enhanced Performance:} Optimized for high-speed switching, reducing switching losses and improving overall efficiency.
+			\item \textbf{Compact Design:} Integrates power devices, drivers, and protection circuitry.
+			\item \textbf{Enhanced Performance:} Optimized for high-speed switching.
 			\item \textbf{Protection Features:} Includes built-in under-voltage lockout, over-temperature protection, and fault reporting, enhancing system reliability.
-			\item \textbf{Ease of Use:} Simplifies system design and reduces time-to-market compared to designing with discrete components.
-			\item \textbf{Cost-Effective:} Reduces the number of required components, lowering overall system cost.
+			\item \textbf{Ease of Use} Simplifies system design and reduces time-to-market compared to designing with discrete components.
 		\end{itemize}
 	\end{columns}
 \end{frame}
 
-\begin{frame}{Induction Motor}
+
+% discrete inverter vs IPM 2 images side by side
+
+\begin{frame}{Discrete inverter vs IPM}
 	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=3in]{sections/section4/images/inductionMotor/revo.png}}
-
-		\caption{Induction Motor}
-
+	  \begin{tabular}{cc}
+		\fbox{\includegraphics[width=1.9in]{sections/finalReview/discreteInverter.png}}
+		&
+		\fbox{\includegraphics[width=1.2in]{sections/section4/images/IPM/ipm.png}} \\
+		\small (a) Discrete Inverter
+		&
+		\small (b) Intelligent Power Module (IPM)
+	  \end{tabular}
+	  \caption{Discrete Inverter vs Intelligent Power Module (IPM)}
 	\end{figure}
-\end{frame}
+  \end{frame}
 
-\begin{frame}{Harware block diagram}
+
+  
+  \begin{frame}{Induction Motor}
+	\begin{tabular}{cc}
+	  \begin{minipage}[c]{0.4\textwidth}
+		\centering
+		\fbox{\includegraphics[width=1.8in]{sections/section4/images/inductionMotor/revo.png}}
+		\captionof{figure}{Induction Motor}
+	  \end{minipage} &
+	  \begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\begin{tabular}{|c|c|}
+		  \hline
+		  \textbf{Parameter} & \textbf{Value} \\ \hline
+		  Power & 0.25 Hp \\ \hline
+		  Voltage & 415 V (L-L) RMS \\ \hline
+		  Current & 1.4 A \\ \hline
+		  Frequency & 50 Hz \\ \hline
+		  Speed & 1440 rpm \\ \hline
+		  Phase & 3 \\ \hline
+		\end{tabular}
+		\captionof{table}{Name-plate Details of Induction motor}
+	  \end{minipage}
+	\end{tabular}
+  \end{frame}
+
+\begin{frame}{Hardware block diagram}
 	\begin{figure}
 		\centering
 
 		\fbox{\includegraphics[width=4in]{sections/section4/images/SingleLineHardware.jpg}}
 
-		\caption{Harware block diagram}
+		\caption{Hardware block diagram}
 	\end{figure}
 \end{frame}
 
@@ -296,19 +335,46 @@
 \end{frame}
 
 
-% ACIM parameter estimation results excel sheet image
 
 \begin{frame}{ACIM Parameter Estimation Results}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=2.8in]{sections/ppt/acim.jpg}}
-
-		\caption{ACIM Parameter Estimation Results}
-	\end{figure}
-\end{frame}
-
-
+	\begin{columns}
+	  \column{0.5\textwidth}
+		\begin{figure}
+		  \centering
+		  \fbox{\includegraphics[width=2.2in]{sections/ppt/acim.jpg}}
+		  \caption{ACIM Parameter Estimation Results}
+		\end{figure}
+	  \column{0.5\textwidth}
+		\scalebox{0.8}{
+		\begin{tabular}{|l|l|}
+		  \hline
+		  \multicolumn{2}{|c|}{No-Load Test} \\
+		  \hline
+		  Parameter & Value \\
+		  \hline
+		  POWER FACTOR MEASURED & 0.20 \\
+		  PHI (radians) & 1.37 \\
+		  Im (A) & 0.75 \\
+		  Ic (A) & 0.15 \\
+		  Lm (H) & 1.02 \\
+		  Rc (Ohm) & 1562.61 \\
+		  \hline
+		  \multicolumn{2}{|c|}{Blocked Test} \\
+		  \hline
+		  Parameter & Value \\
+		  \hline
+		  POWER FACTOR MEASURED & 0.57 \\
+		  PHI (radians) & 0.97 \\
+		  Zsc (Ohm) & 123.72 \\
+		  Rr (Ohm) & 5.11 \\
+		  Xeq (Ohm) & 101.94 \\
+		  Xls (Ohm) & 50.97 \\
+		  Xlr (Ohm) & 50.97 \\
+		  \hline
+		\end{tabular}
+		}
+	\end{columns}
+  \end{frame}
 
 
 
@@ -704,4 +770,38 @@
 	\end{itemize}
 
 \end{frame}
+
+
+\begin{frame}{Literature Review}
+	\begin{center}
+		
+	\begin{table}
+		\centering
+		\tiny
+		\rowcolors{2}{blue!74}{black!80} % this command adds alternating color for rows
+		\begin{tabular}{|p{1.4cm}|p{2.cm}|c|p{6cm}|}
+			\hline
+			\rowcolor{yellow} % this command changes the header color to yellow
+	
+			 \textcolor{black}{\textbf{Author}} & \textcolor{black}{\textbf{Title}} & \textcolor{black}{\textbf{Year}} & \textcolor{black}{\textbf{Summary}}  \\ 
+			
+			\hline
+			\vspace{0.005in} E.S.Tez & \vspace{0.005in} A Simple Understanding Of Field Orientation For Ac Motor Control & \vspace{0.01in} 1995 &  \vspace{0.005in} \RaggedRight The article teaches field-orientation for AC motor control, which aligns the stator and rotor fields for fast torque control. It corrects some wrong ideas about motor models and parameters, and shows a new field-orientation design called INVECTER.  \\
+		 \hline
+		  \vspace{0.1in}
+		   \vspace{0.005in}  Wenzhuo Chen et.al & \vspace{0.005in}  Simulation of Permanent Magnet Synchronous Motor Field oriented Vector Control System & 2014 & \vspace{0.04in} \RaggedRight The text describes coordinate conversion's role in managing motor currents, especially excitation and torque. It highlights PI controllers and SVPWM pulses for precise control of PMSM. Simulation results validate the vector control method's accuracy, supporting real-world system design.\vspace{0.04in} \\
+			\hline
+		   \vspace{0.005in}  Dianguo Xu  et.al &\vspace{0.005in}  A Review of Sensorless Control Methods for AC Motor Drives & 2018  & \vspace{0.04in} \RaggedRight Sensorless control - signal injection methods are simpler and easier to execute than model reference adaptive system and Kalman filter. Requires large amount of data. \vspace{0.04in} \\
+			\hline 
+		   
+			\vspace{0.005in}  Rupprecht Gabriel. et al & \vspace{0.005in} Implementation of Field Oriented Control for Permanent Magnet Synchronous Motor & 1980 & \vspace{0.04in} \RaggedRight The article shows how microprocessors can control AC machines better with field orientation, which improves their dynamic performance. It gives the theory of AC motor control by field orientation and some results from a test drive. It explains the induction motor model and talks about the future possibilities in the field. \vspace{0.04in} \\
+			\hline        
+			\vspace{0.005in}  Arun Dominic Dn et.al & Analysis of field-oriented controlled induction motor drives overview of sensorless scheme & 2014 & \vspace{0.04in} \RaggedRight This article  explores use of blanking periods and space vector modulation to enhance low-speed drive performance, providing a thorough technique review.\\
+			\hline
+		\end{tabular}
+		\label{tab:lit-survey}
+	\end{table}
+	\end{center}
+	\end{frame}
+
 \end{document}
