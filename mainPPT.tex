@@ -7,37 +7,8 @@
 	\maketitle
 \end{frame}
 
-\begin{frame}{Field Oriented Control}
-	\begin{itemize}
-		\item Add awesome images for indicating concept of FOC.
-	\end{itemize}
-\end{frame}
 
-
-\begin{frame}{Introduction to Vector Control of Induction Motor}
-	\begin{itemize}
-		\item Decouples stator current components in a rotating reference frame
-		\item Offers better dynamic response, speed accuracy, efficiency, and power factor
-		\item Requires complex math ops: coordinate transformations, vector calculations, and PWM generation
-		\item Rotor flux angle estimation via sensorless techniques or physical sensors
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Advantages of Field Oriented Control (FOC)}
-	\begin{itemize}
-		\item \textbf{Dynamic Response:} Faster and more accurate response to changes.
-		\item \textbf{High torque:} FOC provides high torque at low speeds.
-		\item \textbf{Efficiency:} Reduced energy consumption and increased performance.
-		\item \textbf{Speed Control:} Precise and accurate control of motor's speed.
-	\end{itemize}
-\end{frame}
-
-
-
-% DC motor Torque control loop
-
-\begin{frame}{DC Motor Torque Control Loop}
+\begin{frame}{DC Motor Control Loop}
 	\begin{figure}
 		\centering
 		\fbox{\includegraphics[width=4in]{sections/finalReview/dcMotor.png}}
@@ -45,8 +16,6 @@
 	\end{figure}
 \end{frame}
 
-
-% FoC in a nutsheel simplfied diagram
 
 \begin{frame}{Field Oriented Control in a Nutshell}
 	\begin{figure}
@@ -59,17 +28,27 @@
 \begin{frame}{Block Diagram of Field Oriented Control}
 	\begin{figure}
 		\centering
-		\fbox{\includegraphics[width=4in]{sections/section2/images/blockDiagram.png}}
+		\fbox{\includegraphics[width=3in]{sections/section2/images/blockDiagram.png}}
 		\caption{Block Diagram of Field Oriented Control}
 	\end{figure}
 	\begin{itemize}
-		\item Coordinate Transformations.
-		\item PI Controllers.
+		\item Actual Current.
+		\item Reference Current.
 		\item PWM Generation.
+		\item Rotor Flux Estimation.
 	\end{itemize}
 \end{frame}
 
 % coordinate transform images
+
+\begin{frame}{Coordinate Transformations}
+	\begin{itemize}
+		\item RMF Animation
+		\item Clark Animation
+		\item Park Animation
+	\end{itemize}
+\end{frame}
+
 
 \begin{frame}{Coordinate Transformations}
 	\begin{figure}
@@ -79,183 +58,25 @@
 	\end{figure}
 \end{frame}
 
+\begin{frame}{Advantages of Field Oriented Control (FOC)}
+	\begin{itemize}
+		\item \textbf{Dynamic Response:} Faster and more accurate response to changes.
+		\item \textbf{High torque:} FOC provides high torque at low speeds.
+		\item \textbf{Efficiency:} Reduced energy consumption and increased performance.
+		\item \textbf{Speed Control:} Precise and accurate control of motor's speed.
+	\end{itemize}
+\end{frame}
 
-% Slide 3: Block Diagram of the System
-\begin{frame}{Block Diagram of the System}
+
+
+
+\begin{frame}{Hardware block diagram}
 	\begin{figure}
 		\centering
 
-		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/blockDia.png}}
-		\caption{Block Diagram of the System}
-	\end{figure}
-\end{frame}
+		\fbox{\includegraphics[width=4in]{sections/section4/images/SingleLineHardware.jpg}}
 
-% Slide 4: Speed Control Subsystem
-\begin{frame}{Speed Control Subsystem}
-	\vspace{-0.5cm} % adjust vertical space
-	\begin{figure}
-		\centering
-		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/speedControl/speedController.png}}
-		\caption{Speed Control Subsystem}
-	\end{figure}
-	\vspace{-0.5cm} % adjust vertical space
-	\begin{align}
-		i_{d_0}    & = \frac{Z_{rd}}{L_m}                                                          \\
-		i_{sq_req} & = \frac{T^{ref}}{3/2 \cdot P \cdot \left(\frac{L_m}{L_r}\right) \cdot i_{rd}}
-	\end{align}
-\end{frame}
-
-
-% Slide 5: Current Measurement
-\begin{frame}{Current Measurement}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/finalReview/adcBlock.png}}
-		\caption{ADC block for reading current}
-	\end{figure}
-\end{frame}
-
-
-\begin{frame}{Flux observer and Speed Estimation}
-	\begin{columns}
-		\column{0.4\textwidth}
-		\begin{figure}
-			\centering
-			\fbox{\includegraphics[width=1.2in]{sections/finalReview/fluxobserver.png}} % replace with your placeholder image
-		\end{figure}
-		\column{0.6\textwidth}
-		\begin{equation*}
-			\begin{gathered}
-				\psi_a = \frac{L_r}{L_m} \left( \int (V_a - I_a R) dt - \sigma L_s I_a \right) \\
-				\addlinespace
-				\psi_b = \frac{L_r}{L_m} \left( \int (V_b - I_b R) dt - \sigma L_s I_b \right) \\
-				\addlinespace
-				\sigma = 1 - \frac{L_m^2}{L_r \cdot L_s} \\
-				\addlinespace
-				\theta_e = \tan^{-1} \frac{\psi_b}{\psi_a}
-			\end{gathered}
-		\end{equation*}
-	\end{columns}
-\end{frame}
-
-
-% slip speed estimator
-
-\begin{frame}{Slip Speed Estimator}
-	\begin{columns}
-		\column{0.4\textwidth}
-		\begin{figure}
-			\centering
-			\fbox{\includegraphics[width=1.2in]{sections/finalReview/slipspeed.png}} % replace with your placeholder image
-		\end{figure}
-		\column{0.6\textwidth}
-		\begin{equation*}
-			\begin{gathered}
-				\tau_r = \left(\frac{L_r}{R_r}\right) \\[0.5em]
-				\omega_\text{slip} = \left(\frac{1}{p}\right)\left(\frac{1}{\tau_r}\right)\left(\frac{i_\text{sq}^\text{ref}}{i_\text{sd}^\text{ref}}\right)
-				\omega_e = \omega_r + \omega_{e_\text{slip}} \\[0.5em]
-			\end{gathered}
-		\end{equation*}
-	\end{columns}
-\end{frame}
-
-% Slide 6: Position and Speed Estimation
-\begin{frame}{Position and Speed Estimation}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/inputScaling/fluxObserver.png}}
-		\caption{Position and Speed Estimation}
-	\end{figure}
-\end{frame}
-
-\begin{frame}{Rotor Load Angle}
-	\begin{figure}
-		\centering
-		\fbox{\includegraphics[width=2.5in]{sections/finalReview/rotorFlux.png}}
-		\caption{Rotor Load Angle}
-	\end{figure}
-\end{frame}
-
-
-% Flux observer and speed estimation blocks
-
-
-% Slide 7: Current Control System
-\begin{frame}{Current Control System}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/currentControl/controlSystem.png}}
-		\caption{Current Control System}
-	\end{figure}
-\end{frame}
-
-
-
-% Slide 8: Speed Response
-\begin{frame}{Speed Response}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section3/images/simulationResutls/SpeedTrackingNoCursor.png}}
-		\caption{Speed Response}
-	\end{figure}
-\end{frame}
-
-
-\begin{frame}{Ia and Ib Feedback/Measured Currents}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section3/images/simulationResutls/Ia_Ib_fb.png}}
-		\caption{Ia and Ib Feedback/Measured Currents}
-	\end{figure}
-\end{frame}
-
-
-% Slide 13: Iq Reference and Feedback Currents (Torque producing current)
-\begin{frame}{Iq Reference and Feedback Currents (Torque producing current)}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section3/images/simulationResutls/Iq_ref_fb.png}}
-
-	\end{figure}
-\end{frame}
-
-% Slide 14: Id Reference and Feedback Currents (Magnetizing current)
-\begin{frame}{Id Reference and Feedback Currents (Magnetizing current)}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section3/images/simulationResutls/Id_ref_fb.png}}
-
-	\end{figure}
-\end{frame}
-
-
-
-\begin{frame}{MATLAB/Simulink Implementation}
-	\begin{figure}
-		\includegraphics[width=3in]{conference/vfSimulation.png} % Replace with your V/f control Simulink image
-		\caption{V/f Control Simulink Diagram}
-	\end{figure}
-\end{frame}
-
-
-\begin{frame}{Performance Comparison: Torque Response}
-	\begin{figure}
-		\includegraphics[width=4in]{conference/60rpmTorque.jpeg} % Replace with your torque response comparison graph
-		\caption{Torque Response of V/F with ramp input}
-	\end{figure}
-\end{frame}
-
-\begin{frame}{Performance Comparison: Torque Response}
-	\begin{figure}
-		\includegraphics[width=4in]{conference/foc_60rpm.png} % Replace with your torque response comparison graph
-		\caption{Torque Response of FOC with ramp input}
+		\caption{Hardware block diagram}
 	\end{figure}
 \end{frame}
 
@@ -343,41 +164,145 @@
 	\end{tabular}
 \end{frame}
 
-\begin{frame}{Hardware block diagram}
+
+
+
+% Slide 3: Block Diagram of the System
+\begin{frame}{Block Diagram of the System}
 	\begin{figure}
 		\centering
 
-		\fbox{\includegraphics[width=4in]{sections/section4/images/SingleLineHardware.jpg}}
+		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/blockDia.png}}
+		\caption{Block Diagram of the System}
+	\end{figure}
+\end{frame}
 
-		\caption{Hardware block diagram}
+% Slide 4: Speed Control Subsystem
+\begin{frame}{Speed Control Subsystem}
+	\vspace{-0.5cm} % adjust vertical space
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/speedControl/speedController.png}}
+		\caption{Speed Control Subsystem}
+	\end{figure}
+	\vspace{-0.5cm} % adjust vertical space
+	\begin{align}
+		i_{d_0}    & = \frac{Z_{rd}}{L_m}                                                          \\
+		i_{sq_req} & = \frac{T^{ref}}{3/2 \cdot P \cdot \left(\frac{L_m}{L_r}\right) \cdot i_{rd}}
+	\end{align}
+\end{frame}
+
+
+% Slide 5: Current Measurement
+\begin{frame}{Current Measurement}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/finalReview/adcBlock.png}}
+		\caption{ADC block for reading current}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Current Control System}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/currentControl/controlSystem.png}}
+		\caption{Current Control System}
 	\end{figure}
 \end{frame}
 
 
+
+\begin{frame}{Flux observer and Speed Estimation}
+	\begin{columns}
+		\column{0.4\textwidth}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=1.2in]{sections/finalReview/fluxobserver.png}} % replace with your placeholder image
+		\end{figure}
+		\column{0.6\textwidth}
+		\begin{equation*}
+			\begin{gathered}
+				\psi_a = \frac{L_r}{L_m} \left( \int (V_a - I_a R) dt - \sigma L_s I_a \right) \\
+				\addlinespace
+				\psi_b = \frac{L_r}{L_m} \left( \int (V_b - I_b R) dt - \sigma L_s I_b \right) \\
+				\addlinespace
+				\sigma = 1 - \frac{L_m^2}{L_r \cdot L_s} \\
+				\addlinespace
+				\theta_e = \tan^{-1} \frac{\psi_b}{\psi_a}
+			\end{gathered}
+		\end{equation*}
+	\end{columns}
+\end{frame}
+
+
+% slip speed estimator
+
+\begin{frame}{Slip Speed Estimator}
+	\begin{columns}
+		\column{0.4\textwidth}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=1.2in]{sections/finalReview/slipspeed.png}} % replace with your placeholder image
+		\end{figure}
+		\column{0.6\textwidth}
+		\begin{equation*}
+			\begin{gathered}
+				\tau_r = \left(\frac{L_r}{R_r}\right) \\[0.5em]
+				\omega_\text{slip} = \left(\frac{1}{p}\right)\left(\frac{1}{\tau_r}\right)\left(\frac{i_\text{sq}^\text{ref}}{i_\text{sd}^\text{ref}}\right)
+				\omega_e = \omega_r + \omega_{e_\text{slip}} \\[0.5em]
+			\end{gathered}
+		\end{equation*}
+	\end{columns}
+\end{frame}
+
+% Slide 6: Position and Speed Estimation
+\begin{frame}{Position and Speed Estimation}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/inputScaling/fluxObserver.png}}
+		\caption{Position and Speed Estimation}
+	\end{figure}
+\end{frame}
+
+
+% Slide 7: Current Control System
+\begin{frame}{Current Control System}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/currentControl/controlSystem.png}}
+		\caption{Current Control System}
+	\end{figure}
+\end{frame}
+
+
+
 \begin{frame}{ACIM required data}
 	\begin{columns}
-	  \column{0.3\textwidth}
-	  \begin{figure}
-		\centering
-		\fbox{\includegraphics[width=1.3in]{sections/finalReview/dlgCurrentRef.jpg}}
-		\caption{Current Reference}
-	  \end{figure}
-	  \column{0.3\textwidth}
-	  \begin{figure}
-		\centering
-		\fbox{\includegraphics[width=1.2in]{sections/finalReview/dlgFlux.jpg}}
-		\caption{Flux observer}
-	  \end{figure}
-	  \column{0.3\textwidth}
-	  \begin{figure}
-		\centering
-		\fbox{\includegraphics[width=1.5in]{sections/finalReview/dlgSlip.jpg}}
-		\caption{Slip speed estimator}
-	  \end{figure}
+		\column{0.3\textwidth}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=1.3in]{sections/finalReview/dlgCurrentRef.jpg}}
+			\caption{Current Reference}
+		\end{figure}
+		\column{0.3\textwidth}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=1.2in]{sections/finalReview/dlgFlux.jpg}}
+			\caption{Flux observer}
+		\end{figure}
+		\column{0.3\textwidth}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=1.5in]{sections/finalReview/dlgSlip.jpg}}
+			\caption{Slip speed estimator}
+		\end{figure}
 
 	\end{columns}
-  \end{frame}
-
+\end{frame}
 
 \begin{frame}{ACIM Parameter Estimation: No-Load Test}
 	\begin{columns}
@@ -493,6 +418,87 @@
 		}
 	\end{columns}
 \end{frame}
+
+
+
+
+\begin{frame}{Rotor Load Angle}
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=2.5in]{sections/finalReview/rotorFlux.png}}
+		\caption{Rotor Load Angle}
+	\end{figure}
+\end{frame}
+
+
+
+
+
+% Slide 8: Speed Response
+\begin{frame}{Speed Response}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/section3/images/simulationResutls/SpeedTrackingNoCursor.png}}
+		\caption{Speed Response}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}{Ia and Ib Feedback/Measured Currents}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/section3/images/simulationResutls/Ia_Ib_fb.png}}
+		\caption{Ia and Ib Feedback/Measured Currents}
+	\end{figure}
+\end{frame}
+
+
+% Slide 13: Iq Reference and Feedback Currents (Torque producing current)
+\begin{frame}{Iq Reference and Feedback Currents (Torque producing current)}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/section3/images/simulationResutls/Iq_ref_fb.png}}
+
+	\end{figure}
+\end{frame}
+
+% Slide 14: Id Reference and Feedback Currents (Magnetizing current)
+\begin{frame}{Id Reference and Feedback Currents (Magnetizing current)}
+	\begin{figure}
+		\centering
+
+		\fbox{\includegraphics[width=4in]{sections/section3/images/simulationResutls/Id_ref_fb.png}}
+
+	\end{figure}
+\end{frame}
+
+
+
+\begin{frame}{MATLAB/Simulink Implementation}
+	\begin{figure}
+		\includegraphics[width=3in]{conference/vfSimulation.png} % Replace with your V/f control Simulink image
+		\caption{V/f Control Simulink Diagram}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}{Performance Comparison: Torque Response}
+	\begin{figure}
+		\includegraphics[width=4in]{conference/60rpmTorque.jpeg} % Replace with your torque response comparison graph
+		\caption{Torque Response of V/F with ramp input}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Performance Comparison: Torque Response}
+	\begin{figure}
+		\includegraphics[width=4in]{conference/foc_60rpm.png} % Replace with your torque response comparison graph
+		\caption{Torque Response of FOC with ramp input}
+	\end{figure}
+\end{frame}
+
 
 
 
