@@ -27,19 +27,38 @@
 	\frametitle{Advantages of Field Oriented Control (FOC)}
 	\begin{itemize}
 		\item \textbf{Dynamic Response:} Faster and more accurate response to changes.
+		\item \textbf{High torque:} FOC provides high torque at low speeds.
 		\item \textbf{Efficiency:} Reduced energy consumption and increased performance.
 		\item \textbf{Speed Control:} Precise and accurate control of motor's speed.
-		\item \textbf{Starting Torque:} High initial force for heavy-duty applications.
-		\item \textbf{Regenerative Capability:} Energy recovery through regenerative braking.
 	\end{itemize}
 \end{frame}
 
 
+
+% DC motor Torque control loop
+
+\begin{frame}{DC Motor Torque Control Loop}
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=4in]{sections/finalReview/dcMotor.png}}
+		\caption{Commutator naturally adjust for MTPA}
+	\end{figure}
+\end{frame}
+
+
+% FoC in a nutsheel simplfied diagram
+
+\begin{frame}{Field Oriented Control in a Nutshell}
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=4in]{sections/finalReview/focCoreSimply.png}}
+		\caption{Field Oriented Control in a Nutshell}
+	\end{figure}
+\end{frame}
 % Slide 2: Block Diagram of FOC
 \begin{frame}{Block Diagram of Field Oriented Control}
 	\begin{figure}
 		\centering
-
 		\fbox{\includegraphics[width=4in]{sections/section2/images/blockDiagram.png}}
 		\caption{Block Diagram of Field Oriented Control}
 	\end{figure}
@@ -73,13 +92,19 @@
 
 % Slide 4: Speed Control Subsystem
 \begin{frame}{Speed Control Subsystem}
+	\vspace{-0.5cm} % adjust vertical space
 	\begin{figure}
 		\centering
-
 		\fbox{\includegraphics[width=4in]{sections/section3/images/simulation/speedControl/speedController.png}}
 		\caption{Speed Control Subsystem}
 	\end{figure}
+	\vspace{-0.5cm} % adjust vertical space
+	\begin{align}
+		i_{d_0}    & = \frac{Z_{rd}}{L_m}                                                          \\
+		i_{sq_req} & = \frac{T^{ref}}{3/2 \cdot P \cdot \left(\frac{L_m}{L_r}\right) \cdot i_{rd}}
+	\end{align}
 \end{frame}
+
 
 % Slide 5: Current Measurement
 \begin{frame}{Current Measurement}
@@ -89,6 +114,50 @@
 		\fbox{\includegraphics[width=4in]{sections/finalReview/adcBlock.png}}
 		\caption{ADC block for reading current}
 	\end{figure}
+\end{frame}
+
+
+\begin{frame}{Flux observer and Speed Estimation}
+	\begin{columns}
+		\column{0.4\textwidth}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=1.2in]{sections/finalReview/fluxobserver.png}} % replace with your placeholder image
+		\end{figure}
+		\column{0.6\textwidth}
+		\begin{equation*}
+			\begin{gathered}
+				\psi_a = \frac{L_r}{L_m} \left( \int (V_a - I_a R) dt - \sigma L_s I_a \right) \\
+				\addlinespace
+				\psi_b = \frac{L_r}{L_m} \left( \int (V_b - I_b R) dt - \sigma L_s I_b \right) \\
+				\addlinespace
+				\sigma = 1 - \frac{L_m^2}{L_r \cdot L_s} \\
+				\addlinespace
+				\theta_e = \tan^{-1} \frac{\psi_b}{\psi_a}
+			\end{gathered}
+		\end{equation*}
+	\end{columns}
+\end{frame}
+
+
+% slip speed estimator
+
+\begin{frame}{Slip Speed Estimator}
+	\begin{columns}
+		\column{0.4\textwidth}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=1.2in]{sections/finalReview/slipspeed.png}} % replace with your placeholder image
+		\end{figure}
+		\column{0.6\textwidth}
+		\begin{equation*}
+			\begin{gathered}
+				\tau_r = \left(\frac{L_r}{R_r}\right) \\[0.5em]
+				\omega_\text{slip} = \left(\frac{1}{p}\right)\left(\frac{1}{\tau_r}\right)\left(\frac{i_\text{sq}^\text{ref}}{i_\text{sd}^\text{ref}}\right)
+				\omega_e = \omega_r + \omega_{e_\text{slip}} \\[0.5em]
+			\end{gathered}
+		\end{equation*}
+	\end{columns}
 \end{frame}
 
 % Slide 6: Position and Speed Estimation
@@ -101,6 +170,10 @@
 	\end{figure}
 \end{frame}
 
+
+% Flux observer and speed estimation blocks
+
+
 % Slide 7: Current Control System
 \begin{frame}{Current Control System}
 	\begin{figure}
@@ -110,6 +183,8 @@
 		\caption{Current Control System}
 	\end{figure}
 \end{frame}
+
+
 
 % Slide 8: Speed Response
 \begin{frame}{Speed Response}
@@ -121,15 +196,6 @@
 	\end{figure}
 \end{frame}
 
-% Slide 9: Slip Speed
-\begin{frame}{Slip Speed}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section3/images/simulationResutls/SlipSpeed.png}}
-		\caption{Slip Speed}
-	\end{figure}
-\end{frame}
 
 \begin{frame}{Ia and Ib Feedback/Measured Currents}
 	\begin{figure}
@@ -140,26 +206,6 @@
 	\end{figure}
 \end{frame}
 
-% Slide 11: Id and Iq Reference Currents
-\begin{frame}{Id and Iq Reference Currents}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section3/images/simulationResutls/Id_ref_Iq_ref.png}}
-
-		\caption{Id and Iq Reference Currents}
-	\end{figure}
-\end{frame}
-
-% Slide 12: Id and Iq Feedback Currents
-\begin{frame}{Id and Iq Feedback Currents}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section3/images/simulationResutls/Id_fb_Iq_fb.png}}
-
-	\end{figure}
-\end{frame}
 
 % Slide 13: Iq Reference and Feedback Currents (Torque producing current)
 \begin{frame}{Iq Reference and Feedback Currents (Torque producing current)}
@@ -182,13 +228,41 @@
 \end{frame}
 
 
+
+\begin{frame}{MATLAB/Simulink Implementation}
+	\begin{figure}
+		\includegraphics[width=3in]{conference/vfSimulation.png} % Replace with your V/f control Simulink image
+		\caption{V/f Control Simulink Diagram}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}{Performance Comparison: Torque Response}
+	\begin{figure}
+		\includegraphics[width=4in]{conference/60rpmTorque.jpeg} % Replace with your torque response comparison graph
+		\caption{Torque Response of V/F with ramp input}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Performance Comparison: Torque Response}
+	\begin{figure}
+		\includegraphics[width=4in]{conference/foc_60rpm.png} % Replace with your torque response comparison graph
+		\caption{Torque Response of FOC with ramp input}
+	\end{figure}
+\end{frame}
+
+
 \begin{frame}{C2000 Features for Implementing Vector Control Algorithm}
 	\begin{columns}
 		\column{0.5\textwidth}
 		\begin{minipage}[c]{\linewidth}
-			\centering
-			\fbox{\includegraphics[width=2in]{sections/section4/images/f23879d/launchxl-f28379d-angled.png}}
-			\caption{F28379D Launchpad}
+			\begin{figure}
+
+				\centering
+				\fbox{\includegraphics[width=2in]{sections/section4/images/f23879d/launchxl-f28379d-angled.png}}
+				\caption{F28379D Launchpad}
+
+			\end{figure}
 		\end{minipage}
 		\column{0.5\textwidth}
 		\begin{itemize}
@@ -460,7 +534,8 @@
 	\end{figure}
 
 	\begin{itemize}
-		\item Charges when low-side switch is on and supplies 15V across high side IGBT gate-emitter
+		\item Floating Emitter
+		\item Charges when low-side switch is on
 	\end{itemize}
 \end{frame}
 
@@ -503,7 +578,7 @@
 \begin{frame}{Rotor Load Angle}
 	\begin{figure}
 		\centering
-		\fbox{\includegraphics[width=1.5in]{sections/finalReview/rotorFlux.png}}
+		\fbox{\includegraphics[width=2.5in]{sections/finalReview/rotorFlux.png}}
 		\caption{Rotor Load Angle}
 	\end{figure}
 \end{frame}
@@ -512,18 +587,24 @@
 % Current sense circuit image block diagram
 
 \begin{frame}{Current Sensing Circuit}
-	\begin{figure}
-		\centering
+	\begin{columns}
+		\column{0.65\textwidth}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=2.3in]{sections/ppt/currentSense.jpg}}
+			\caption{Current Sensing Circuit}
 
-		\fbox{\includegraphics[width=2.8in]{sections/ppt/currentSense.jpg}}
+		\end{figure}
+		\begin{itemize}
+			\item Differential amplifier of gain $20 \frac{V}{V}$ is connected across shunt resistor and postive side DC shifted by $\frac{V_{cc}}{2}$ for bi-directional current sensing.
+		\end{itemize}
+		\column{0.4\textwidth}
+		\begin{itemize}
+			\item $I_\text{peak} = 2A \Rightarrow$
 
-		\caption{Current Sensing Circuit}
-	\end{figure}
-
-
-	\begin{itemize}
-		\item Differential amplifier is connected across shunt resistor and postive side DC shifted by $V_{cc}\over 2$ for bi-directional current sensing.
-	\end{itemize}
+			\item $V_{out}= 10\text{mV} \cdot 20 = 0.2\text{V}$
+		\end{itemize}
+	\end{columns}
 \end{frame}
 
 % Slide 21: Current Sensing Circuit in Multisim
