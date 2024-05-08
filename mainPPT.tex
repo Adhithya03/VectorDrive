@@ -304,6 +304,25 @@
 	\end{columns}
 \end{frame}
 
+
+% Slide: No-load and Blocked Rotor Test Circuits
+\begin{frame}{ACIM Parameter Estimation: Test Circuits}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=2in]{sections/section5/images/ParamEstim/noloadCircuitKrish.png}}
+			\caption{No-load test circuit}
+		\end{figure}
+		\column{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=2in]{sections/section5/images/ParamEstim/blockedCircuitKrish.png}}
+			\caption{Blocked rotor test circuit}
+		\end{figure}
+	\end{columns}
+\end{frame}
+
 \begin{frame}{ACIM Parameter Estimation: No-Load Test}
 	\begin{columns}
 		\column{0.5\textwidth}
@@ -324,23 +343,6 @@
 	\end{columns}
 \end{frame}
 
-% Slide: No-load and Blocked Rotor Test Circuits
-\begin{frame}{ACIM Parameter Estimation: Test Circuits}
-	\begin{columns}
-		\column{0.5\textwidth}
-		\begin{figure}
-			\centering
-			\fbox{\includegraphics[width=2in]{sections/section5/images/ParamEstim/noloadCircuitKrish.png}}
-			\caption{No-load test circuit}
-		\end{figure}
-		\column{0.5\textwidth}
-		\begin{figure}
-			\centering
-			\fbox{\includegraphics[width=2in]{sections/section5/images/ParamEstim/blockedCircuitKrish.png}}
-			\caption{Blocked rotor test circuit}
-		\end{figure}
-	\end{columns}
-\end{frame}
 % ACIM formuls
 
 \begin{frame}{ACIM Parameter Estimation Formulas}
@@ -420,20 +422,6 @@
 \end{frame}
 
 
-
-
-\begin{frame}{Rotor Load Angle}
-	\begin{figure}
-		\centering
-		\fbox{\includegraphics[width=2.5in]{sections/finalReview/rotorFlux.png}}
-		\caption{Rotor Load Angle}
-	\end{figure}
-\end{frame}
-
-
-
-
-
 % Slide 8: Speed Response
 \begin{frame}{Speed Response}
 	\begin{figure}
@@ -476,6 +464,14 @@
 \end{frame}
 
 
+\begin{frame}{Load Angle}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4in]{sections/section3/images/simulationResutls/LoadAngle.png}
+	\caption{Load Angle between Rotor Flux and Stator Flux}
+	\label{fig:load_angle_1}
+\end{figure}
+\end{frame}
 
 \begin{frame}{MATLAB/Simulink Implementation}
 	\begin{figure}
@@ -498,6 +494,34 @@
 		\caption{Torque Response of FOC with ramp input}
 	\end{figure}
 \end{frame}
+
+
+\begin{frame}{Complete Hardware Setup}
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=3in]{sections/section6/images/hardwareSetup/fullSetupWithMotorAndIPM.jpg}
+		}\caption{Experimental Setup for Motor Control System with Induction Motor, DC Bus, Inverter, and Controller}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{DC Bus Setup}
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=3in]{sections/section6/images/hardwareSetup/DC bus rectifier transformer.jpg}
+		}\caption{DC Bus Setup: 230V AC to 48V DC conversion with capacitor banks for stable power delivery}
+	\end{figure}
+\end{frame}
+
+% Slide for Inverter and Controller
+\begin{frame}{Inverter and Controller}
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=2.3in]{sections/section6/images/hardwareSetup/IPM and C2000.jpg}
+		}\caption{Inverter (FSAM20SH60A) and Controller (F28379D Launchpad) Setup}
+	\end{figure}
+\end{frame}
+
+% Slide for Full Setup
 
 
 
@@ -677,29 +701,27 @@
 % Counter compare and timer period visualtion 1
 
 \begin{frame}{Counter Compare and Timer Period Visualization}
-	\begin{figure}
+	\begin{columns}
+	  \column{0.33\textwidth}
+	  \begin{figure}
 		\centering
-		\fbox{\includegraphics[width=4in]{sections/ppt/CC1.png}}
+		\fbox{\includegraphics[width=\linewidth]{sections/ppt/CC1.png}}
 		\caption{Counter Compare High}
-	\end{figure}
-\end{frame}
-
-\begin{frame}{Counter Compare and Timer Period Visualization}
-	\begin{figure}
+	  \end{figure}
+	  \column{0.33\textwidth}
+	  \begin{figure}
 		\centering
-		\fbox{\includegraphics[width=4in]{sections/ppt/CC2.png}}
+		\fbox{\includegraphics[width=\linewidth]{sections/ppt/CC2.png}}
 		\caption{Counter Compare Low}
-	\end{figure}
-\end{frame}
-
-\begin{frame}{Counter Compare and Timer Period Visualization}
-	\begin{figure}
+	  \end{figure}
+	  \column{0.33\textwidth}
+	  \begin{figure}
 		\centering
-		\fbox{\includegraphics[width=4in]{sections/ppt/CC3.png}}
+		\fbox{\includegraphics[width=\linewidth]{sections/ppt/CC3.png}}
 		\caption{Counter Compare half}
-	\end{figure}
-\end{frame}
-
+	  \end{figure}
+	\end{columns}
+  \end{frame}
 
 \begin{frame}{TBPRD Calculation}
 
@@ -825,30 +847,12 @@
 
 
 
-% Slide for DC Bus
-\begin{frame}{DC Bus Setup}
-	\begin{figure}
-		\centering
-		\fbox{\includegraphics[width=3in]{sections/section6/images/hardwareSetup/DC bus rectifier transformer.jpg}
-		}\caption{DC Bus Setup: 230V AC to 48V DC conversion with capacitor banks for stable power delivery}
-	\end{figure}
-\end{frame}
+\begin{frame}{Challenges: False Positives from Fault Alarm}
 
-% Slide for Inverter and Controller
-\begin{frame}{Inverter and Controller}
 	\begin{figure}
 		\centering
-		\fbox{\includegraphics[width=2.3in]{sections/section6/images/hardwareSetup/IPM and C2000.jpg}
-		}\caption{Inverter (FSAM20SH60A) and Controller (F28379D Launchpad) Setup}
-	\end{figure}
-\end{frame}
-
-% Slide for Full Setup
-\begin{frame}{Complete Hardware Setup}
-	\begin{figure}
-		\centering
-		\fbox{\includegraphics[width=3in]{sections/section6/images/hardwareSetup/fullSetupWithMotorAndIPM.jpg}
-		}\caption{Experimental Setup for Motor Control System with Induction Motor, DC Bus, Inverter, and Controller}
+		\fbox{\includegraphics[width=4in]{sections/finalReview/faultss.png}
+		}\caption{False Positives from Fault Alarm}
 	\end{figure}
 \end{frame}
 
