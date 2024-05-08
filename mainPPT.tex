@@ -7,6 +7,25 @@
 	\maketitle
 \end{frame}
 
+\begin{frame}{Field Oriented Control}
+	\begin{itemize}
+		\item Add awesome images for indicating concept of FOC.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Advantages of Vector Control in Induction Motors}
+	\begin{itemize}
+		\item \textbf{Dynamic Response:} Faster and more accurate response to changes.
+		\item \textbf{Efficiency:} Reduced energy consumption and increased performance.
+		\item \textbf{Speed Control:} Precise and accurate control of motor's speed.
+		\item \textbf{Starting Torque:} High initial force for heavy-duty applications.
+		\item \textbf{Regenerative Capability:} Energy recovery through regenerative braking.
+	\end{itemize}
+\end{frame}
+
+
 % Slide 2: Block Diagram of FOC
 \begin{frame}{Block Diagram of Field Oriented Control}
 	\begin{figure}
@@ -15,6 +34,11 @@
 		\fbox{\includegraphics[width=4in]{sections/section2/images/blockDiagram.png}}
 		\caption{Block Diagram of Field Oriented Control}
 	\end{figure}
+	\begin{itemize}
+		\item Coordinate Transformations.
+		\item PI Controllers.
+		\item PWM Generation.
+	\end{itemize}
 \end{frame}
 
 % Slide 3: Block Diagram of the System
@@ -137,7 +161,45 @@
 	\end{figure}
 \end{frame}
 
-% Slide 15: Image of Induction Motor
+\begin{frame}{C2000 Features for Implementing Vector Control Algorithm}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=2in]{sections/section4/images/f23879d/launchxl-f28379d-angled.png}}
+			\caption{F28379D Launchpad}
+		\end{figure}
+		\column{0.5\textwidth}
+		\begin{itemize}
+			\item \textbf{Dual-Core C28x Architecture:} Enables simultaneous execution of control tasks and communication tasks, improving overall system performance.
+			\item \textbf{Control Law Accelerator (CLA):} Offloads the CPU by executing time-critical control algorithms, freeing the CPU for other tasks.
+			\item \textbf{High-Resolution PWM:} Offers precise control over motor's speed and torque, critical for effective Field Oriented Control (FOC).
+			\item \textbf{Integrated ADCs:} Facilitates accurate and efficient sensing of motor currents and voltages, a key requirement in FOC.
+			\item \textbf{Floating Point Unit:} Simplifies the implementation of complex mathematical algorithms used in FOC.
+		\end{itemize}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{Advantages of Using Intelligent Power Module FSAM20SH60A}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\fbox{\includegraphics[width=0.9in]{sections/section4/images/IPM/ipm.png}}
+			\caption{Intelligent Power Module FSAM20SH60A}
+		\end{figure}
+		\column{0.5\textwidth}
+		\begin{itemize}
+			\item \textbf{Compact Design:} Integrates power devices, drivers, and protection circuitry in a single package, saving space and simplifying system design.
+			\item \textbf{Enhanced Performance:} Optimized for high-speed switching, reducing switching losses and improving overall efficiency.
+			\item \textbf{Protection Features:} Includes built-in under-voltage lockout, over-temperature protection, and fault reporting, enhancing system reliability.
+			\item \textbf{Ease of Use:} Simplifies system design and reduces time-to-market compared to designing with discrete components.
+			\item \textbf{Cost-Effective:} Reduces the number of required components, lowering overall system cost.
+		\end{itemize}
+	\end{columns}
+\end{frame}
+
 \begin{frame}{Induction Motor}
 	\begin{figure}
 		\centering
@@ -149,73 +211,54 @@
 	\end{figure}
 \end{frame}
 
-% Slide 16: Image of F28379D Launchpad
-\begin{frame}{F23879d Launchpad}
+\begin{frame}{Harware block diagram}
 	\begin{figure}
 		\centering
 
-		\fbox{\includegraphics[width=4in]{sections/section4/images/f23879d/launchxl-f28379d-angled.png}}
+		\fbox{\includegraphics[width=4in]{sections/section4/images/SingleLineHardware.jpg}}
 
-		\caption{F28379D Launchpad}
+		\caption{Harware block diagram}
 	\end{figure}
 \end{frame}
 
-% Slide 17: Image of FSAM20SH60A module
-\begin{frame}{Intelligent Power Module Fsam20sh60a}
-	\begin{figure}
-		\centering
 
-		\fbox{\includegraphics[width=1.8in]{sections/section4/images/IPM/ipm.png}}
-
-		\caption{Intelligent Power Module FSAM20SH60A}
-	\end{figure}
-\end{frame}
-
-% Slide 22: No-load test setup
 \begin{frame}{ACIM Parameter Estimation: No-Load Test}
-	\begin{figure}
-		\centering
+	\begin{columns}
+	  \column{0.5\textwidth}
+		\begin{figure}
+		  \centering
+		  \fbox{\includegraphics[width=2.2in]{sections/section5/images/ParamEstim/SetupNoload.jpg}}
+		  \caption{No-load test setup}
+		\end{figure}
+		\begin{itemize}
+		  \item Slip speed is made zero.
+		\end{itemize}
+	  \column{0.5\textwidth}
+		\begin{figure}
+		  \centering
+		  \fbox{\includegraphics[width=2.2in]{sections/section5/images/ParamEstim/FlukeVoltAmpHertz.png}}
+		  \caption{Fluke 434 power analyzer}
+		\end{figure}
+	\end{columns}
+  \end{frame}
 
-		\fbox{\includegraphics[width=4in]{sections/section5/images/ParamEstim/SetupNoload.jpg}}
-
-		\caption{No-load test setup}
-	\end{figure}
-\end{frame}
-
-% Slide 23: Fluke 434 power analyzer
-\begin{frame}{Fluke 434 Power Analyzer}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section5/images/ParamEstim/FlukeVoltAmpHertz.png}}
-
-		\caption{Fluke 434 power analyzer}
-	\end{figure}
-\end{frame}
-
-% Slide 24: No-load test circuit
-\begin{frame}{No-load Test Circuit}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section5/images/ParamEstim/noloadCircuitKrish.png}}
-
-		\caption{No-load test circuit}
-	\end{figure}
-\end{frame}
-
-% Slide 25: Blocked rotor test circuit
-\begin{frame}{ACIM Parameter Estimation: Blocked Rotor Test}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=4in]{sections/section5/images/ParamEstim/blockedCircuitKrish.png}}
-
-		\caption{Blocked rotor test circuit}
-	\end{figure}
-\end{frame}
-
-
+% Slide: No-load and Blocked Rotor Test Circuits
+\begin{frame}{ACIM Parameter Estimation: Test Circuits}
+	\begin{columns}
+	  \column{0.5\textwidth}
+		\begin{figure}
+		  \centering
+		  \fbox{\includegraphics[width=2in]{sections/section5/images/ParamEstim/noloadCircuitKrish.png}}
+		  \caption{No-load test circuit}
+		\end{figure}
+	  \column{0.5\textwidth}
+		\begin{figure}
+		  \centering
+		  \fbox{\includegraphics[width=2in]{sections/section5/images/ParamEstim/blockedCircuitKrish.png}}
+		  \caption{Blocked rotor test circuit}
+		\end{figure}
+	\end{columns}
+  \end{frame}
 % ACIM formuls
 
 \begin{frame}{ACIM Parameter Estimation Formulas}
@@ -289,6 +332,11 @@
 
 		\caption{MCU Interface Circuit}
 	\end{figure}
+
+	\begin{itemize}
+		\item Bypass capacitors ground H.F. oscillations, decoupling DC circuit from A.C. Noise.
+		\item Input pullup removes load strain on MCU.
+	\end{itemize}
 \end{frame}
 
 
@@ -298,10 +346,15 @@
 	\begin{figure}
 		\centering
 
-		\fbox{\includegraphics[width=4in]{sections/ppt/short-circuit-protection.jpg}}
+		\fbox{\includegraphics[width=2.8in]{sections/ppt/short-circuit-protection.jpg}}
 
 		\caption{Short Circuit Protection Circuit}
 	\end{figure}
+
+
+	\begin{itemize}
+		\item Seperate open-emitter pins are provided from low-side IGBTs for current sensing.
+	\end{itemize}
 \end{frame}
 
 
@@ -324,10 +377,14 @@
 	\begin{figure}
 		\centering
 
-		\fbox{\includegraphics[width=4in]{sections/ppt/bootstrap.jpg}}
+		\fbox{\includegraphics[width=2.8in]{sections/ppt/bootstrap.jpg}}
 
 		\caption{Bootstrap Circuit}
 	\end{figure}
+
+	\begin{itemize}
+		\item Charges when low-side switch is on and supplies 15V across high side IGBT gate-emitter
+	\end{itemize}
 \end{frame}
 
 
@@ -385,10 +442,15 @@
 	\begin{figure}
 		\centering
 
-		\fbox{\includegraphics[width=4in]{sections/ppt/currentSense.jpg}}
+		\fbox{\includegraphics[width=2.8in]{sections/ppt/currentSense.jpg}}
 
 		\caption{Current Sensing Circuit}
 	\end{figure}
+
+
+	\begin{itemize}
+		\item Differential amplifier is connected across shunt resistor and postive side DC shifted by $V_{cc}\over 2$ for bi-directional current sensing.
+	\end{itemize}
 \end{frame}
 
 % Slide 21: Current Sensing Circuit in Multisim
@@ -483,9 +545,34 @@
 \end{frame}
 
 
-% SVPWM simulink model
+\begin{frame}{ePWM Configuration}
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=3in]{sections/section6/images/SVPWM/ePWMTBPRD.png}}
+		\caption{ePWM configuration in Simulink}
+	\end{figure}
+\end{frame}
 
-\begin{frame}{SVPWM Simulink Model}
+
+\begin{frame}{Space Vector Pulse Width Modulation (SVPWM)}
+
+	\begin{figure}
+		\centering
+		\fbox{\includegraphics[width=2.2in]{sections/finalReview/svpwm.jpg}}
+		\caption{Gate pulse generation}
+	\end{figure}
+
+	\begin{itemize}
+		\item \textbf{Increased Efficiency:} SVPWM reduces harmonic distortion.
+		\item \textbf{Higher Voltage Utilization:} SVPWM allows 15\% more DC bus voltage.
+		\item \textbf{Reduced Switching Losses}
+	\end{itemize}	
+
+\end{frame}
+
+
+
+\begin{frame}{Open loop: SVPWM}
 	\begin{figure}
 		\centering
 		\fbox{\includegraphics[width=4in]{sections/ppt/SVPWM_Simulink.png}}
@@ -494,13 +581,6 @@
 \end{frame}
 
 
-\begin{frame}{ePWM Configuration}
-	\begin{figure}
-		\centering
-		\fbox{\includegraphics[width=3in]{sections/section6/images/SVPWM/ePWMTBPRD.png}}
-		\caption{ePWM configuration in Simulink}
-	\end{figure}
-\end{frame}
 % Slide 28: Hardware setup with RC filter and Launchpad
 \begin{frame}{SVPWM with Low Pass Filter}
 	\begin{figure}
@@ -524,18 +604,6 @@
 \end{frame}
 
 
-% dead band various configs
-
-\begin{frame}{Dead Band Configuration}
-	\begin{figure}
-		\centering
-
-		\fbox{\includegraphics[width=2.3in]{sections/ppt/deadbandConfigs.png}}
-
-		\caption{Dead band time}
-	\end{figure}
-\end{frame}
-
 % Slide 30: Dead band time
 \begin{frame}{Dead Band Configuration}
 	\begin{figure}
@@ -545,6 +613,9 @@
 		\caption{Dead band time}
 	\end{figure}
 \end{frame}
+
+
+
 
 
 % Slide for DC Bus
@@ -592,45 +663,45 @@
 
 	\begin{itemize}
 		\item \textbf{Isolation Attempts:}
-			\begin{itemize}
-				\item Separate control and power stage grounds using separate transformers and rectifiers.
-				\item Temporarily shorted RSC and CSC pins to ground to assess external noise influence.
-			\end{itemize}
+		      \begin{itemize}
+			      \item Separate control and power stage grounds using separate transformers and rectifiers.
+			      \item Temporarily shorted RSC and CSC pins to ground to assess external noise influence.
+		      \end{itemize}
 		\item \textbf{Noise Reduction Techniques:}
-			\begin{itemize}
-				\item Added metal film capacitors across the DC bus to suppress switching transients.
-				\item Reduced switching frequency to minimize voltage/current change rate and noise.
-			\end{itemize}
+		      \begin{itemize}
+			      \item Added metal film capacitors across the DC bus to suppress switching transients.
+			      \item Reduced switching frequency to minimize voltage/current change rate and noise.
+		      \end{itemize}
 		\item \textbf{Future Considerations:}
-			\begin{itemize}
-				\item Further noise reduction through filtering on control signals and power supply lines.
-				\item Improved PCB layout to minimize noise coupling paths and optimize component placement.
-			\end{itemize}
+		      \begin{itemize}
+			      \item Further noise reduction through filtering on control signals and power supply lines.
+			      \item Improved PCB layout to minimize noise coupling paths and optimize component placement.
+		      \end{itemize}
 	\end{itemize}
-	
-	\end{frame}
 
-	\begin{frame}{Conclusion}
+\end{frame}
 
-		\begin{itemize}
-			\item \textbf{Achievements:}
-				\begin{itemize}
-					\item Successful simulation of FOC system demonstrating significant performance improvements.
-					\item Design and development of hardware setup including PCB design and component integration.
-					\item Identification and analysis of challenges related to noise and false alarms.
-				\end{itemize}
-			\item \textbf{Challenges:}
-				\begin{itemize}
-					\item Persistent false positives from the IPM's fault alarm despite implemented mitigation strategies.
-					\item Limited hardware validation due to the unresolved fault alarm issue.
-				\end{itemize}
-			\item \textbf{Future Work:}
-				\begin{itemize}
-					\item Explore additional noise reduction techniques and PCB layout optimization.
-					\item Investigate alternative IPM modules or fault detection mechanisms.
-					\item Implement and validate the closed-loop FOC system in hardware upon resolving the challenges.
-				\end{itemize}
-		\end{itemize}
-		
-		\end{frame}
+\begin{frame}{Conclusion}
+
+	\begin{itemize}
+		\item \textbf{Achievements:}
+		      \begin{itemize}
+			      \item Successful simulation of FOC system demonstrating significant performance improvements.
+			      \item Design and development of hardware setup including PCB design and component integration.
+			      \item Identification and analysis of challenges related to noise and false alarms.
+		      \end{itemize}
+		\item \textbf{Challenges:}
+		      \begin{itemize}
+			      \item Persistent false positives from the IPM's fault alarm despite implemented mitigation strategies.
+			      \item Limited hardware validation due to the unresolved fault alarm issue.
+		      \end{itemize}
+		\item \textbf{Future Work:}
+		      \begin{itemize}
+			      \item Explore additional noise reduction techniques and PCB layout optimization.
+			      \item Investigate alternative IPM modules or fault detection mechanisms.
+			      \item Implement and validate the closed-loop FOC system in hardware upon resolving the challenges.
+		      \end{itemize}
+	\end{itemize}
+
+\end{frame}
 \end{document}
